@@ -14,8 +14,8 @@ export class Account {
     @Column({ type: 'text' })
     nome: string
 
-    @Column({ type: 'integer', unique: true })
-    cpf: number
+    @Column({ type: 'text', unique: true })
+    cpf: string
 
     @Column({ type: 'date' })
     data_nascimento: Date
