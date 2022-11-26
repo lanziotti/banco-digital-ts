@@ -46,3 +46,9 @@ export class AccountController {
 
     }
 }
+
+export class DetailAccountDataController {
+    async read(req: Request, res: Response) {
+        return res.status(200).json(req.user);
+    }
+}
