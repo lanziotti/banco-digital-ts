@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { AccountController, DetailAccountDataController, UpdateAccountController } from '../controllers/AccountController';
+import { AccountController, DeleteAccountController, DetailAccountDataController, UpdateAccountController } from '../controllers/AccountController';
 import { LoginController } from '../controllers/LoginController';
 import { authenticationFilter } from '../middlewares/authentication';
 import { schemaValidation } from '../middlewares/schemaValidator';
@@ -15,5 +15,6 @@ routes.use(authenticationFilter);
 
 routes.get('/conta', new DetailAccountDataController().read);
 routes.put('/conta', schemaValidation(accountSchema), new UpdateAccountController().update);
+routes.delete('/conta', new DeleteAccountController().delete);
 
 export default routes;

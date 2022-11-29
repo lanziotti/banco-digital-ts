@@ -94,6 +94,22 @@ export class UpdateAccountController {
 
         await accountRepository.save(updatedData);
 
-        return res.status(200).json({mensagem: "Dados da conta atualizados com sucesso!"});
+        return res.status(200).json({ mensagem: "Dados da conta atualizados com sucesso!" });
+    }
+}
+
+export class DeleteAccountController {
+    async delete(req: Request, res: Response) {
+        const { id } = req.user;
+
+        const userExists = await accountRepository.findOneBy({ id });
+
+        if (!userExists) {
+            throw new NotFoundError("Sua conta não foi encontrada. Por favor, faça o Login e tente novamente.");
+        }
+
+        await accountRepository.delete(userExists);
+
+        res.status(200).json({ mensagem: "Conta excluida com sucesso!" });
     }
 }
