@@ -15,7 +15,7 @@ export class Deposit {
     @Column({ type: 'text' })
     senha: string
 
-    @ManyToOne(() => Account, account => account.deposits, { eager: true, cascade: true })
+    @ManyToOne(() => Account, account => account.deposits)
     @JoinColumn({ name: 'numero_conta' })
     account: Account
 }
