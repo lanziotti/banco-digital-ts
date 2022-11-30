@@ -6,16 +6,16 @@ export class Deposit {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column({type: 'numeric'})
+    @Column({ type: 'numeric' })
     valor: number
 
-    @Column({type: 'date'})
+    @Column({ type: 'date' })
     data: Date
 
-    @Column({type: 'text'})
+    @Column({ type: 'text' })
     senha: string
 
-    @ManyToOne(() => Account, account => account.deposits)
-    @JoinColumn({name: 'numero_conta'})
+    @ManyToOne(() => Account, account => account.deposits, { eager: true, cascade: true })
+    @JoinColumn({ name: 'numero_conta' })
     account: Account
 }
