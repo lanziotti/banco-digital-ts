@@ -17,5 +17,5 @@ export class Withdraw {
 
     @ManyToOne(() => Account, account => account.withdrawals)
     @JoinColumn({name: 'numero_conta'})
-    account: Account
+    account: Account | number
 }
