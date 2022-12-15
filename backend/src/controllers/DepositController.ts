@@ -8,7 +8,7 @@ export class DepositController {
     async create(req: Request, res: Response) {
         const { id } = req.user;
         const { valor, senha } = req.body;
-
+        
         const userExists = await accountRepository.findOneBy({ id });
 
         if (!userExists) {
@@ -31,8 +31,9 @@ export class DepositController {
             valor,
             data: new Date(),
             senha: encryptedPassword,
+            account: userExists.id
         });
-
+        
         await depositRepository.save(newDeposit);
 
         const updatedBalance = {
