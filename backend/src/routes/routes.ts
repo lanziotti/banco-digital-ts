@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { AccountController, DeleteAccountController, DetailAccountDataController, UpdateAccountController } from '../controllers/AccountController';
 import { DepositController } from '../controllers/DepositController';
 import { LoginController } from '../controllers/LoginController';
+import { TransferController } from '../controllers/TransferController';
 import { WithdrawController } from '../controllers/WithdrawController';
 import { authenticationFilter } from '../middlewares/authentication';
 import { schemaValidation } from '../middlewares/schemaValidator';
@@ -9,6 +10,7 @@ import { accountSchema } from '../validations/AccountSchema';
 import { depositSchema } from '../validations/DepositSchema';
 import { loginSchema } from '../validations/LoginSchema';
 import { withdrawSchema } from '../validations/WithdrawSchema';
+import { transferSchema } from '../validations/TransferSchema';
 
 const routes = Router();
 
@@ -23,5 +25,6 @@ routes.delete('/conta', new DeleteAccountController().delete);
 
 routes.post('/deposito', schemaValidation(depositSchema), new DepositController().create);
 routes.post('/saque', schemaValidation(withdrawSchema), new WithdrawController().create);
+routes.post('/transferencia', schemaValidation(transferSchema), new TransferController().create);
 
 export default routes;

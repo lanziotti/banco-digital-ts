@@ -17,9 +17,9 @@ export class Transfer {
 
     @ManyToOne(() => Account, account => account.transfers_origin)
     @JoinColumn({name: 'numero_conta_origem'})
-    account_origin: Account
+    account_origin: Account | number
 
     @ManyToOne(() => Account, account => account.transfers_destiny)
     @JoinColumn({name: 'numero_conta_destino'})
-    account_destiny: Account
+    account_destiny: Account | number
 }
