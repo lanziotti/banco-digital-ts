@@ -11,6 +11,7 @@ import { depositSchema } from '../validations/DepositSchema';
 import { loginSchema } from '../validations/LoginSchema';
 import { withdrawSchema } from '../validations/WithdrawSchema';
 import { transferSchema } from '../validations/TransferSchema';
+import { ExtractController } from '../controllers/ExtractController';
 
 const routes = Router();
 
@@ -26,5 +27,6 @@ routes.delete('/conta', new DeleteAccountController().delete);
 routes.post('/deposito', schemaValidation(depositSchema), new DepositController().create);
 routes.post('/saque', schemaValidation(withdrawSchema), new WithdrawController().create);
 routes.post('/transferencia', schemaValidation(transferSchema), new TransferController().create);
+routes.get('/extrato', new ExtractController().read);
 
 export default routes;

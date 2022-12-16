@@ -103,9 +103,13 @@ export class DeleteAccountController {
         const { id } = req.user;
 
         const userExists = await accountRepository.findOneBy({ id });
-
+        
         if (!userExists) {
             throw new NotFoundError("Sua conta não foi encontrada. Por favor, faça o Login e tente novamente.");
+        }
+
+        if (Number(userExists.saldo) > 0) {
+            throw new BadRequestError("Não é possível excluir uma conta que ainda possua fundos.");
         }
 
         await accountRepository.delete(userExists);
