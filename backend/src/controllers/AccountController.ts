@@ -1,5 +1,8 @@
 import { Request, Response } from 'express';
 import { accountRepository } from '../repositories/accountRepository';
+import { depositRepository } from '../repositories/depositRepository';
+import { withdrawRepository } from '../repositories/withdrawRepository';
+import { transferRepository } from '../repositories/transferRepository';
 import bcrypt from 'bcrypt';
 import { BadRequestError, NotFoundError } from '../helpers/api-errors';
 
@@ -112,6 +115,48 @@ export class DeleteAccountController {
             throw new BadRequestError("Não é possível excluir uma conta que ainda possua fundos.");
         }
 
+        const allDeposits = await depositRepository.find({
+            loadRelationIds: true,
+            where: {
+                account: id
+            }
+        });
+
+        const filterDeposits = allDeposits.filter((deposit) => deposit.account === id);
+
+        const allWithdraws = await withdrawRepository.find({
+            loadRelationIds: true,
+            where: {
+                account: id
+            }
+        });
+
+        const filterWithdraws = allWithdraws.filter((withdraw) => withdraw.account === id);
+
+        const allTransfers = await transferRepository.find({
+            loadRelationIds: true,
+            where: {
+                account_origin: id,
+                account_destiny: id
+            }
+        });
+
+        const filterTransfers = allTransfers.filter((transfer) => {
+            return transfer.account_origin === id || transfer.account_destiny === id;
+        });
+
+        for (const deposit of filterDeposits) {
+            await depositRepository.delete(deposit);
+        }
+
+        for (const withdraw of filterWithdraws) {
+            await withdrawRepository.delete(withdraw);
+        }
+
+        for (const transfer of filterTransfers) {
+            await transferRepository.delete(transfer);
+        }
+        
         await accountRepository.delete(userExists);
 
         res.status(200).json({ mensagem: "Conta excluida com sucesso!" });
