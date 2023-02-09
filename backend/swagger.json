@@ -1,0 +1,678 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "API RESTful Banco Digital",
+        "description": "Documentação para a API que possui as seguintes features: Cadastrar uma conta, Efetuar o login na conta, Detalhar os dados da conta, Editar os dados da conta, Deletar uma conta, Fazer um depósito, Fazer um saque, Fazer uma transferência, Consultar o extrato",
+        "version": "1.0.0",
+        "contact": {
+            "email": "rodrigolanziotti@yahoo.com.br"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "Servidor Local"
+        }
+    ],
+    "basePath": "/",
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Login na conta",
+                "description": "Essa rota é responsável por fazer o login do usuário na sua conta já cadastrada no sistema",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Conta"
+                            },
+                            "example": {
+                                "email": "silvio@email.com",
+                                "senha": "Silvio123"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Conta"
+                                },
+                                "example": {
+                                    "usuario": {
+                                        "id": 10,
+                                        "nome": "Silvio Santos",
+                                        "email": "silvio@email.com",
+                                        "cpf": "21489652307",
+                                        "data_nascimento": "1912-04-17",
+                                        "telefone": "(11)99548-2661",
+                                        "saldo": 0
+                                    },
+                                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTY3NTk3MTA1NywiZXhwIjoxNjc1OTk5ODU3fQ.b-cmAGzI3p7HWV4mD-jc8Ms4bAY5i6iv9DyxCE6PZYg"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "Todos os campos são obrigatórios."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "EMAIL e/ou SENHA inválidos."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/conta": {
+            "post": {
+                "tags": [
+                    "Conta"
+                ],
+                "summary": "Cadastro de uma conta",
+                "description": "Essa rota é responsável por cadastrar uma nova conta no sistema.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Conta"
+                            },
+                            "example": {
+                                "nome": "Bento Carvalho",
+                                "cpf": "89745623014",
+                                "data_nascimento": "1912-09-12",
+                                "telefone": "(32)3232-2073",
+                                "email": "bento@email.com",
+                                "senha_app": "Bento123",
+                                "senha_transacao": "bento123"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Conta"
+                                },
+                                "example": {
+                                    "id": 10,
+                                    "nome": "Silvio Santos",
+                                    "saldo": 0,
+                                    "usuario": {
+                                        "cpf": "21489652307",
+                                        "data_nascimento": "1912-04-17",
+                                        "telefone": "(11)99548-2661",
+                                        "email": "silvio@email.com"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "Já existe uma conta aberta com esse CPF."
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Conta"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Detalhar dados da conta",
+                "description": "Essa rota é responsável por detalhar os dados da conta do usuário logado.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "id": 10,
+                                    "nome": "Silvio Santos",
+                                    "email": "silvio@email.com",
+                                    "cpf": "21489652307",
+                                    "data_nascimento": "1912-04-17",
+                                    "telefone": "(11)99548-2661",
+                                    "saldo": "0"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "mensagem": "Não autorizado. Por favor, efetue o login."
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Conta"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Editar dados da conta",
+                "description": "Essa rota é responsável por atualizar os dados da conta do usuário logado.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Conta"
+                            },
+                            "example": {
+                                "nome": "Silvio Santos Jr",
+                                "cpf": "21489652307",
+                                "data_nascimento": "1912-04-17",
+                                "telefone": "(11)99548-2661",
+                                "email": "silvio@email.com",
+                                "senha_app": "Silvio123",
+                                "senha_transacao": "silvio123"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "Dados da conta atualizados com sucesso!"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "Todos os campos são obrigatórios."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "mensagem": "Não autorizado. Por favor, efetue o login."
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Conta"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Excluir uma conta",
+                "description": "Essa rota é responsável por deletar uma conta, do usuário logado, do sistema.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "mensagem": "Conta excluida com sucesso!"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "Não é possível excluir uma conta que ainda possua fundos."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "mensagem": "Não autorizado. Por favor, efetue o login."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deposito": {
+            "post": {
+                "tags": [
+                    "Conta"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Depósito na conta",
+                "description": "Essa rota é responsável por realizar um depósito na conta do usuário logado.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Deposito/Saque"
+                            },
+                            "example": {
+                                "valor": 20000,
+                                "senha": "silvio123"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "mensagem": "Depósito realizado com sucesso!"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "Por favor, insira o VALOR do depósito."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "mensagem": "Não autorizado. Por favor, efetue o login."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "SENHA inválida. Por favor, insira corretamente a sua SENHA DE TRANSAÇÃO."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/saque": {
+            "post": {
+                "tags": [
+                    "Conta"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Saque na conta",
+                "description": "Essa rota é responsável por realizar um saque na conta do usuário logado.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Deposito/Saque"
+                            },
+                            "example": {
+                                "valor": 20000,
+                                "senha": "silvio123"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "mensagem": "Saque realizado com sucesso!"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "Por favor, insira o VALOR do saque."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "mensagem": "Não autorizado. Por favor, efetue o login."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "SENHA inválida. Por favor, insira corretamente a sua SENHA DE TRANSAÇÃO."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/transferencia": {
+            "post": {
+                "tags": [
+                    "Conta"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Transferência bancária",
+                "description": "Essa rota é responsável pelo usuário logado conseguir fazer uma tranferência bancária.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Transferencia"
+                            },
+                            "example": {
+                                "numero_conta_destino": 1,
+                                "valor": 13000,
+                                "senha": "silvio123"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Transferencia"
+                                },
+                                "example": {
+                                    "mensagem": "Transferência efetuada com sucesso!"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "Por favor, insira o NÚMERO DA CONTA DE DESTINO."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "mensagem": "Não autorizado. Por favor, efetue o login."
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "mensagem": "SENHA inválida. Por favor, insira corretamente a sua SENHA DE TRANSAÇÃO."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/extrato": {
+            "get": {
+                "tags": [
+                    "Conta"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Extrato da conta bancária",
+                "description": "Essa rota é responsável por detalhar o extrato bancário do usuário logado.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "depositos": [
+                                        {
+                                            "id": 43,
+                                            "valor": "20000",
+                                            "data": "2023-02-09",
+                                            "numero_conta": 13
+                                        },
+                                        {
+                                            "id": 44,
+                                            "valor": "20000",
+                                            "data": "2023-02-09",
+                                            "numero_conta": 13
+                                        }
+                                    ],
+                                    "saques": [
+                                        {
+                                            "id": 9,
+                                            "valor": "20000",
+                                            "data": "2023-02-09",
+                                            "numero_conta": 13
+                                        }
+                                    ],
+                                    "transferenciasEnviadas": [
+                                        {
+                                            "id": 7,
+                                            "valor": "500",
+                                            "data": "2023-02-09",
+                                            "numero_conta_origem": 13,
+                                            "numero_conta_destino": 1
+                                        },
+                                        {
+                                            "id": 8,
+                                            "valor": "13000",
+                                            "data": "2023-02-09",
+                                            "numero_conta_origem": 13,
+                                            "numero_conta_destino": 1
+                                        }
+                                    ],
+                                    "transferenciasRecebidas": []
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "mensagem": "Não autorizado. Por favor, efetue o login."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Conta": {
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "string"
+                    },
+                    "cpf": {
+                        "type": "string"
+                    },
+                    "data_nascimento": {
+                        "type": "string"
+                    },
+                    "telefone": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "senha_app": {
+                        "type": "string"
+                    },
+                    "senha_transacao": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Deposito/Saque": {
+                "type": "object",
+                "properties": {
+                    "valor": {
+                        "type": "number"
+                    },
+                    "senha": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Transferencia": {
+                "type": "object",
+                "properties": {
+                    "numero_conta_destino": {
+                        "type": "integer"
+                    },
+                    "valor": {
+                        "type": "number"
+                    },
+                    "senha": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}

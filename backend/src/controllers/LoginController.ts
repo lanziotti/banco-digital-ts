@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { accountRepository } from '../repositories/accountRepository';
-import { BadRequestError } from '../helpers/api-errors';
+import { NotFoundError } from '../helpers/api-errors';
 
 export class LoginController {
     async create(req: Request, res: Response) {
@@ -11,13 +11,13 @@ export class LoginController {
         const user = await accountRepository.findOneBy({ email });
 
         if (!user) {
-            throw new BadRequestError("EMAIL e/ou SENHA inválidos.");
+            throw new NotFoundError("EMAIL e/ou SENHA inválidos.");
         }
 
         const correctPassword = await bcrypt.compare(senha, user.senha_app);
 
         if (!correctPassword) {
-            throw new BadRequestError("EMAIL e/ou SENHA inválidos.");
+            throw new NotFoundError("EMAIL e/ou SENHA inválidos.");
         }
 
         const token = jwt.sign({ id: user.id }, process.env.HASH_JWT ?? '', { expiresIn: '8h' });

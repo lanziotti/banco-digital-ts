@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import { Request, Response } from "express";
-import { BadRequestError, NotFoundError } from "../helpers/api-errors";
+import { NotFoundError } from "../helpers/api-errors";
 import { accountRepository } from "../repositories/accountRepository";
 import { depositRepository } from '../repositories/depositRepository';
 
@@ -16,13 +16,13 @@ export class DepositController {
         }
 
         if (valor <= 0) {
-            throw new BadRequestError("Não é possível fazer um DEPÓSITO com valores zerados ou negativos.");
+            throw new NotFoundError("Não é possível fazer um DEPÓSITO com valores zerados ou negativos.");
         }
 
         const correctPassword = await bcrypt.compare(senha, userExists.senha_transacao);
 
         if (!correctPassword) {
-            throw new BadRequestError("SENHA inválida. Por favor, insira corretamente a sua SENHA DE TRANSAÇÃO.");
+            throw new NotFoundError("SENHA inválida. Por favor, insira corretamente a sua SENHA DE TRANSAÇÃO.");
         }
 
         const encryptedPassword = await bcrypt.hash(senha, 10);
