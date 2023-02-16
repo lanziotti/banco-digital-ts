@@ -25,7 +25,6 @@ Projeto pessoal feito para simular operações básicas geralmente feitas em um 
 - [Node.js](https://nodejs.org/)
 - [Ts-node](https://www.npmjs.com/package/ts-node)
 - [Express](https://expressjs.com/pt-br/)
-- [Express-async-errors](https://www.npmjs.com/package/express-async-errors)
 - [Cors](https://www.npmjs.com/package/cors)
 - [TypeORM](https://typeorm.io/)
 - [Zod](https://zod.dev/)
@@ -35,6 +34,7 @@ Projeto pessoal feito para simular operações básicas geralmente feitas em um 
 - [Jsonwebtoken](https://jwt.io/)
 - [Jest](https://jestjs.io/)
 - [Supertest](https://www.npmjs.com/package/supertest)
+- [Faker](https://fakerjs.dev/)
 - [Swagger](https://swagger.io/docs/)
 
 ### Banco de Dados
