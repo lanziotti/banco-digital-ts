@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 75px 75px 0 75px;
+}
+
+.mini-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 24px;
+}
+
+.btn-false {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #4AE985;
+    border-radius: 50px;
+}
+
+.btn-false span {
+    color: #0E0E0E;
+    font-weight: 700;
+    font-size: 14px;
+}

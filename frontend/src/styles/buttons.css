@@ -1,0 +1,25 @@
+button {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 21px 46px;
+
+    border-radius: 50px;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.btn-black {
+    background-color: #0E0E0E;
+    color: #FDFAF3;
+}

@@ -1,0 +1,18 @@
+.login-targeting {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.login-targeting span {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.login-targeting img {
+    cursor: pointer;
+}
+
+.login-targeting img:hover {
+    transform: scale(1.05);
+}
