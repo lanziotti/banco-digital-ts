@@ -1,6 +1,6 @@
 @import url(./buttons.css);
 @import url(./custom-classes.css);
-@import url(./buttons.css);
+@import url(./inputs.css);
 
 * {
   margin: 0;
@@ -14,7 +14,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #0E0E0E;
-  ;
 }
 
 code {

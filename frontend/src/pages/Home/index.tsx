@@ -5,12 +5,12 @@ import ImageHome from '../../assets/image-home.svg';
 
 function Home() {
   return (
-    <div className='container-home'>
+    <div className='container'>
       <HeaderLogin />
       <main className='main-home'>
         <div className='content-text'>
           <div className='mini-title'>
-            <div className='btn-false btn-false-size'>
+            <div className='btn-false btn-false-home'>
               <span>Navegação Digital</span>
             </div>
             <img src={CircleIcon} alt='Imagem circulo' />

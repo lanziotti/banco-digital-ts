@@ -4,6 +4,13 @@
     padding: 75px 75px 0 75px;
 }
 
+.container {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #FDFAF3;
+    border-radius: 80px;
+}
+
 .mini-title {
     display: flex;
     align-items: center;

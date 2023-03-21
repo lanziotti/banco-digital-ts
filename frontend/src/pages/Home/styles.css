@@ -1,10 +1,3 @@
-.container-home {
-    width: 100vw;
-    min-height: 100vh;
-    background-color: #FDFAF3;
-    border-radius: 80px;
-}
-
 .main-home {
     width: 100%;
     display: flex;
@@ -55,7 +48,7 @@
     margin: 31px 0 24px 0;
 }
 
-.btn-false-size {
+.btn-false-home {
     width: 169.81px;
     height: 38.1px;
 }
@@ -76,9 +69,9 @@
     height: 694.29px;
 }
 
-@media (width: 1440px) {
+@media (min-width: 1440px) {
     .content-image img {
         width: 774.15px;
-        height: 794.29px;
+        height: 748.29px;
     }
 }
