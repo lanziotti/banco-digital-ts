@@ -2,7 +2,7 @@ import './styles.css';
 import LogoImage from '../../assets/logo.svg';
 import BtnArrowIcon from '../../assets/btn-arrow.svg';
 
-function Header() {
+function HeaderLogin() {
   return (
     <header className='header'>
         <img src={LogoImage} alt='Logo' />
@@ -14,4 +14,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderLogin;

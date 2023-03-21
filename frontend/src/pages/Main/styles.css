@@ -1,0 +1,93 @@
+.container-main {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0 75px 0 75px;
+}
+
+.container-balance {
+    margin-top: 64px;
+}
+
+.container-balance h1, .container-balance h2, .container-patchs h4 {
+    font-weight: 500;
+
+    color: #000000
+}
+
+.container-balance h2 {
+    font-size: 64px;
+
+    margin: 41px 0 65px 0;
+}
+
+.container-balance h3 {
+    font-size: 48px;
+
+    margin-bottom: 45px;
+}
+
+.container-balance h1 {
+    font-weight: 700;
+    font-size: 96px;
+
+    color: #000000;
+}
+
+.btn-false-main {
+    width: 169.81px;
+    height: 38.1px;
+}
+
+.container-patchs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 72px;
+}
+
+.container-patchs h4 {
+    font-size: 32px;
+}
+
+.patchs-title {
+    margin-bottom: 42px;
+}
+
+.patchs {
+    display: flex;
+    gap: 61px;
+
+    margin-bottom: 48px;
+}
+
+.patch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+}
+
+.patch:hover {
+    transform: scale(1.1);
+}
+
+.patch-img {
+    width: 200px;
+    height: 200px;
+
+    background-color: #46EB85;
+
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.patch-img img {
+    width: 125px;
+    height: 125px;
+}
