@@ -21,7 +21,6 @@ function ModalDeposit() {
               <div className='container-input'>
                 <label htmlFor='value_deposit'>Valor</label>
                 <input
-                placeholder='R$ 1.000,00'
                   type='text'
                   name='value_deposit'
                 />

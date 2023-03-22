@@ -7,7 +7,8 @@ import Main from './pages/Main';
 // import Extract from './pages/Extract';
 // import ModalLogin from './components/ModalLogin';
 // import ModalDeposit from './components/ModalDeposit';
-import ModalWithdraw from './components/ModalWithdraw';
+// import ModalWithdraw from './components/ModalWithdraw';
+import ModalTransfer from './components/ModalTransfer';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,6 +21,7 @@ root.render(
     {/* <Extract /> */}
     {/* <ModalLogin /> */}
     {/* <ModalDeposit /> */}
-    <ModalWithdraw />
+    {/* <ModalWithdraw /> */}
+    <ModalTransfer />
   </React.StrictMode>
 );

@@ -1,0 +1,73 @@
+.container-modal {
+    min-height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.content-modal {
+    width: 895px;
+    height: 520px;
+
+    background-color: #FDFAF3;
+    border: 1px solid #0E0E0E;
+    border-radius: 10px;
+
+    display: flex;
+
+    position: relative;
+}
+
+.close-icon {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+
+    cursor: pointer;
+}
+
+.close-icon:hover {
+    transform: scale(1.1);
+}
+
+.content-form-deposit {
+    display: flex;
+    flex-direction: column;
+
+   padding: 75px 60px 0 58px;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mini-title-deposit {
+    margin-bottom: 28px;
+}
+
+.btn-false-login {
+    width: 150px;
+    height: 31.42px;
+}
+
+.btn-black-deposit {
+    width: 192px;
+    height: 57px;
+
+    margin-top: 38px;
+}
+
+.content-image-login {
+    padding-top: 25px;
+}
