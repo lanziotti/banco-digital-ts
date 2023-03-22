@@ -1,0 +1,95 @@
+.container-modal {
+    min-height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.content-modal {
+    width: 895px;
+    height: 520px;
+
+    background-color: #FDFAF3;
+    border: 1px solid #0E0E0E;
+    border-radius: 10px;
+
+    display: flex;
+
+    position: relative;
+}
+
+.close-icon {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+
+    cursor: pointer;
+}
+
+.close-icon:hover {
+    transform: scale(1.1);
+}
+
+.content-form-deposit {
+    display: flex;
+    flex-direction: column;
+
+    padding: 18px 61px 0 57px;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-input-update {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    margin-bottom: 3px;
+
+    position: relative;
+
+}
+
+.container-input-update img {
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    top: 25px;
+    right: 10px;
+
+    cursor: pointer;
+}
+
+.mini-title-deposit {
+    margin-bottom: 5px;
+}
+
+.btn-false-login {
+    width: 150px;
+    height: 31.42px;
+}
+
+.btn-black-deposit {
+    width: 192px;
+    height: 57px;
+
+    margin-top: 10px;
+}
+
+.content-image-login {
+    padding-top: 3px;
+}
