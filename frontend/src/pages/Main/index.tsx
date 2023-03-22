@@ -34,7 +34,7 @@ function Main() {
                         </div>
                         <div className='patch'>
                             <div className='patch-img'>
-                                <img src={WithdrawIcon} alt='Depósito' />
+                                <img src={WithdrawIcon} alt='Saque' />
                             </div>
                             <h4>Saque</h4>
                         </div>
@@ -42,13 +42,13 @@ function Main() {
                     <div className='patchs'>
                         <div className='patch'>
                             <div className='patch-img'>
-                                <img src={TransferIcon} alt='Depósito' />
+                                <img src={TransferIcon} alt='Transação' />
                             </div>
                             <h4>Transferência</h4>
                         </div>
                         <div className='patch'>
                             <div className='patch-img'>
-                                <img src={ExtractIcon} alt='Depósito' />
+                                <img src={ExtractIcon} alt='Extrato' />
                             </div>
                             <h4>Extrato</h4>
                         </div>
