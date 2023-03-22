@@ -6,7 +6,8 @@ import './styles/index.css';
 import Main from './pages/Main';
 // import Extract from './pages/Extract';
 // import ModalLogin from './components/ModalLogin';
-import ModalDeposit from './components/ModalDeposit';
+// import ModalDeposit from './components/ModalDeposit';
+import ModalWithdraw from './components/ModalWithdraw';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,6 +19,7 @@ root.render(
     <Main />
     {/* <Extract /> */}
     {/* <ModalLogin /> */}
-    <ModalDeposit />
+    {/* <ModalDeposit /> */}
+    <ModalWithdraw />
   </React.StrictMode>
 );
