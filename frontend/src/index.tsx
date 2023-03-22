@@ -10,7 +10,8 @@ import Main from './pages/Main';
 // import ModalWithdraw from './components/ModalWithdraw';
 // import ModalTransfer from './components/ModalTransfer';
 // import ModalAccountData from './components/ModalAccountData';
-import ModalUpdate from './components/ModalUpdate';
+// import ModalUpdate from './components/ModalUpdate';
+import ModalDeleteAccount from './components/ModalDeleteAccount';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -26,6 +27,7 @@ root.render(
     {/* <ModalWithdraw /> */}
     {/* <ModalTransfer /> */}
     {/* <ModalAccountData /> */}
-    <ModalUpdate />
+    {/* <ModalUpdate /> */}
+    <ModalDeleteAccount />
   </React.StrictMode>
 );

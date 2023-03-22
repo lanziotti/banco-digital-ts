@@ -38,7 +38,7 @@ button:hover {
     padding: 17px 20px;
 }
 
-.btn-yellow:hover, .btn-red:hover {
+.btn-yellow:hover, .btn-red:hover, .btn-green:hover {
     opacity: 0.9;
     color: #0E0E0E;
 }
@@ -48,4 +48,9 @@ button:hover {
     color: #FDFAF3;
 
     padding: 17px 23px;
+}
+
+.btn-green {
+    background-color: #4AE985;
+    color: #FDFAF3;
 }
