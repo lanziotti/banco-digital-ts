@@ -8,7 +8,8 @@ import Main from './pages/Main';
 // import ModalLogin from './components/ModalLogin';
 // import ModalDeposit from './components/ModalDeposit';
 // import ModalWithdraw from './components/ModalWithdraw';
-import ModalTransfer from './components/ModalTransfer';
+// import ModalTransfer from './components/ModalTransfer';
+import ModalAccountData from './components/ModalAccountData';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -22,6 +23,7 @@ root.render(
     {/* <ModalLogin /> */}
     {/* <ModalDeposit /> */}
     {/* <ModalWithdraw /> */}
-    <ModalTransfer />
+    {/* <ModalTransfer /> */}
+    <ModalAccountData />
   </React.StrictMode>
 );

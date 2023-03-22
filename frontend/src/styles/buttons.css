@@ -28,3 +28,24 @@ button:hover {
     background-color: #4AE985;
     color: #0E0E0E;
 }
+
+.btn-yellow {
+    height: 55.96px;
+
+    background-color: #F4A01F;
+    color: #FDFAF3;
+
+    padding: 17px 20px;
+}
+
+.btn-yellow:hover, .btn-red:hover {
+    opacity: 0.9;
+    color: #0E0E0E;
+}
+
+.btn-red {
+    background-color: #E84C4C;
+    color: #FDFAF3;
+
+    padding: 17px 23px;
+}
