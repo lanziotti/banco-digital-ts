@@ -5,9 +5,13 @@ import DepositIcon from '../../assets/deposit.svg';
 import WithdrawIcon from '../../assets/withdraw.svg';
 import TransferIcon from '../../assets/transfer.svg';
 import ExtractIcon from '../../assets/extract.svg';
+import { getItem } from '../../utils/storage';
 
 
 function Main() {
+    const userName = getItem('userName');
+    const userBalance = getItem('userBalance');
+
     return (
         <div className='container'>
             <HeaderMain />
@@ -19,9 +23,9 @@ function Main() {
                         </div>
                         <img src={CircleIcon} alt='Imagem circulo' />
                     </div>
-                    <h2>Bem-vindo Rodrigo</h2>
+                    <h2>{`Bem-vindo ${userName}`}</h2>
                     <h3>Saldo disponível:</h3>
-                    <h1>R$ 10.000,00</h1>
+                    <h1>{`R$ ${userBalance}`}</h1>
                 </div>
                 <div className='container-patchs'>
                     <h4 className='patchs-title'>O que deseja fazer?</h4>

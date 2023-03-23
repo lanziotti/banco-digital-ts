@@ -2,8 +2,17 @@ import './styles.css';
 import LogoImage from '../../assets/logo.svg';
 import UserIcon from '../../assets/user.svg';
 import LogoutIcon from '../../assets/logout.svg';
+import { useNavigate } from 'react-router-dom';
+import { clear } from '../../utils/storage';
 
 function HeaderMain() {
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    clear();
+    navigate('/');
+  }
+
   return (
     <header className='header'>
       <img src={LogoImage} alt='Logo' />
@@ -12,7 +21,10 @@ function HeaderMain() {
           <span>Dados da conta</span>
           <img src={UserIcon} alt='Dados do Usuário' />
         </div>
-        <div className='container-logout'>
+        <div
+          className='container-logout'
+          onClick={handleLogout}
+        >
           <span>Sair</span>
           <img src={LogoutIcon} alt='Sair' />
         </div>

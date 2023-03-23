@@ -4,12 +4,13 @@ import ImageRegister from '../../assets/image-register.svg';
 import CircleIcon from '../../assets/circle.svg';
 import EyeIcon from '../../assets/eye.svg';
 import EyeCloseIcon from '../../assets/eye-close.svg';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import ModalLogin from '../../components/ModalLogin';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 import { notifyError, notifySucess } from '../../utils/notifications';
+import { getItem, setItem } from '../../utils/storage';
 
 
 function Register() {
@@ -26,6 +27,14 @@ function Register() {
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const token = getItem('token');
+
+        if (token) {
+            navigate('/main');
+        }
+    }, [navigate]);
+
     async function handleSubmitRegister(e) {
         e.preventDefault();
 
@@ -34,7 +43,7 @@ function Register() {
                 return notifyError('Todos os campos são obrigatórios.');
             }
 
-            const response = await api.post('/conta',
+            const responseRegister = await api.post('/conta',
                 {
                     nome: formRegister.name,
                     cpf: formRegister.cpf,
@@ -46,15 +55,27 @@ function Register() {
                 }
             );
 
-            if (response.status > 204) {
-                return notifyError(response.data);
+            if (responseRegister.status > 204) {
+                return notifyError(responseRegister.data);
             }
 
             notifySucess('Sua conta Digital Banking foi criada com sucesso!');
 
+            const responseLogin = await api.post('/login', {
+                email: formRegister.email,
+                senha: formRegister.password_app
+            });
+
+            const { usuario, token } = responseLogin.data;
+
+            setItem('token', token);
+            setItem('userId', usuario.id);
+            setItem('userName', usuario.nome);
+            setItem('userBalance', usuario.saldo);
+
             setFormRegister({ ...defaultFormRegister });
 
-            navigate('/');
+            navigate('/main');
 
         } catch (error) {
             notifyError(error.response.status === 400 ? error.response.data[0].mensagem : error.response.data.mensagem);

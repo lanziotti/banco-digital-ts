@@ -1,7 +1,15 @@
-import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Register from './pages/Register';
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import Home from './pages/Home';
+import Main from './pages/Main';
+import Register from './pages/Register';
+import { getItem } from './utils/storage';
+
+function ProtectedRoutes({ redirectTo }) {
+    const token = getItem('token');
+
+    return token ? <Outlet /> : <Navigate to={redirectTo} />;
+}
 
 function AppRoutes() {
     return (
@@ -10,6 +18,10 @@ function AppRoutes() {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/register' element={<Register />} />
+
+                <Route element={<ProtectedRoutes redirectTo='/' />}>
+                    <Route path='/main' element={<Main />} />
+                </Route>
             </Routes>
         </>
     );
