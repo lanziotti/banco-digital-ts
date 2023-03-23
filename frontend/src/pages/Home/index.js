@@ -3,18 +3,20 @@ import CircleIcon from '../../assets/circle.svg';
 import ImageHome from '../../assets/image-home.svg';
 import HeaderLogin from '../../components/HeaderLogin';
 import './styles.css';
-import ModalLogin from '../../components/ModalLogin';
+import { useContext } from 'react';
+import { ModalLoginContext } from '../../contexts/ModalLoginContext';
+import ModalLogin from '../../components/ModalLogin'
 
 
-function Home({ openModalLogin, setOpenModalLogin }) {
+function Home() {
   const navigate = useNavigate();
+
+  const { openModalLogin } = useContext(ModalLoginContext);
 
   return (
     <>
       <div className='container'>
-        <HeaderLogin
-          setOpenModalLogin={setOpenModalLogin}
-        />
+        <HeaderLogin />
         <main className='main-home'>
           <div className='content-text'>
             <div className='mini-title'>
@@ -37,10 +39,10 @@ function Home({ openModalLogin, setOpenModalLogin }) {
           </div>
         </main>
       </div>
-      {openModalLogin &&
-        <ModalLogin
-          setOpenModalLogin={setOpenModalLogin}
-        />}
+      {
+        openModalLogin &&
+        <ModalLogin />
+      }
     </>
   );
 }

@@ -1,8 +1,11 @@
 import './styles.css';
 import LogoImage from '../../assets/logo.svg';
 import BtnArrowIcon from '../../assets/btn-arrow.svg';
+import { useContext } from 'react';
+import { ModalLoginContext } from '../../contexts/ModalLoginContext';
 
-function HeaderLogin({ setOpenModalLogin }) {
+function HeaderLogin() {
+  const { setOpenModalLogin } = useContext(ModalLoginContext);
 
   return (
     <header className='header'>
