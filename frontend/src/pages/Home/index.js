@@ -4,14 +4,14 @@ import ImageHome from '../../assets/image-home.svg';
 import HeaderLogin from '../../components/HeaderLogin';
 import './styles.css';
 import { useContext } from 'react';
-import { ModalLoginContext } from '../../contexts/ModalLoginContext';
+import { GlobalContext } from '../../contexts/GlobalContext';
 import ModalLogin from '../../components/ModalLogin'
 
 
 function Home() {
   const navigate = useNavigate();
 
-  const { openModalLogin } = useContext(ModalLoginContext);
+  const { openModalLogin } = useContext(GlobalContext);
 
   return (
     <>

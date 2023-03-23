@@ -1,6 +1,7 @@
 @import url(./buttons.css);
 @import url(./custom-classes.css);
 @import url(./inputs.css);
+@import url('react-toastify/dist/ReactToastify.min.css');
 
 * {
   margin: 0;

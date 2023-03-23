@@ -4,10 +4,10 @@ import CircleIcon from '../../assets/circle.svg';
 import EyeIcon from '../../assets/eye.svg';
 import LoginImage from '../../assets/login.svg';
 import { useContext } from 'react';
-import { ModalLoginContext } from '../../contexts/ModalLoginContext';
+import { GlobalContext } from '../../contexts/GlobalContext';
 
 function ModalLogin() {
-  const { setOpenModalLogin } = useContext(ModalLoginContext);
+  const { setOpenModalLogin } = useContext(GlobalContext);
 
   return (
     <div className='container-modal'>

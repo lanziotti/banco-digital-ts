@@ -2,10 +2,10 @@ import './styles.css';
 import LogoImage from '../../assets/logo.svg';
 import BtnArrowIcon from '../../assets/btn-arrow.svg';
 import { useContext } from 'react';
-import { ModalLoginContext } from '../../contexts/ModalLoginContext';
+import { GlobalContext } from '../../contexts/GlobalContext';
 
 function HeaderLogin() {
-  const { setOpenModalLogin } = useContext(ModalLoginContext);
+  const { setOpenModalLogin } = useContext(GlobalContext);
 
   return (
     <header className='header'>

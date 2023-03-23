@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import AppRoutes from './routes';
 import { BrowserRouter } from 'react-router-dom';
-import { ModalLoginContextProvider } from './contexts/ModalLoginContext';
+import { GlobalContextProvider } from './contexts/GlobalContext';
+
 
 ReactDOM.createRoot(
   document.getElementById('root')).render(
     <React.StrictMode>
-      <ModalLoginContextProvider>
+      <GlobalContextProvider>
         <BrowserRouter>
           <AppRoutes />
         </BrowserRouter>
-      </ModalLoginContextProvider>
+      </GlobalContextProvider>
     </React.StrictMode>
   );
