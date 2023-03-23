@@ -14,7 +14,9 @@ function HeaderMain() {
     setPasswordApp,
     setShowPasswordLogin,
     setFormRegister,
-    defaultFormRegister
+    defaultFormRegister,
+    setShowPasswordApp,
+    setShowPasswordTransaction
   } = useContext(GlobalContext);
   const navigate = useNavigate();
 
@@ -25,6 +27,8 @@ function HeaderMain() {
     setOpenModalLogin(false);
     setShowPasswordLogin(false);
     setFormRegister({...defaultFormRegister});
+    setShowPasswordApp(false);
+    setShowPasswordTransaction(false);
     navigate('/');
   }
 

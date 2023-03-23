@@ -75,7 +75,7 @@ function Register() {
             navigate('/main');
 
         } catch (error) {
-            notifyError(error.response.status === 400 && error.response.data.mensagem === 'Já existe uma conta aberta com esse CPF.' ? error.response.data.mensagem : error.response.data[0].mensagem);
+            notifyError(error.response.status === 400 && (error.response.data.mensagem === 'Já existe uma conta aberta com esse CPF.' || error.response.data.mensagem === 'Já existe uma conta aberta com esse E-MAIL.') ? error.response.data.mensagem : error.response.data[0].mensagem);
         }
     }
 
