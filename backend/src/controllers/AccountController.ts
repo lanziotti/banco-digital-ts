@@ -10,10 +10,16 @@ export class AccountController {
         const { nome, cpf, data_nascimento, telefone, email, senha_app, senha_transacao } = req.body;
 
         try {
-            const account = await accountRepository.findOneBy({ cpf });
+            const accountCpfExists = await accountRepository.findOneBy({ cpf });
 
-            if (account) {
+            if (accountCpfExists) {
                 return res.status(400).json({ mensagem: "Já existe uma conta aberta com esse CPF." });
+            }
+
+            const accountEmailExists = await accountRepository.findOneBy({ email });
+
+            if (accountEmailExists) {
+                return res.status(400).json({ mensagem: "Já existe uma conta aberta com esse E-MAIL." });
             }
 
             const encryptedPasswordApp = await bcrypt.hash(senha_app, 10);
