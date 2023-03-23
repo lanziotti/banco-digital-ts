@@ -2,12 +2,62 @@ import './styles.css';
 import BtnClose from '../../assets/btn-close.svg';
 import CircleIcon from '../../assets/circle.svg';
 import EyeIcon from '../../assets/eye.svg';
+import EyeCloseIcon from '../../assets/eye-close.svg';
 import LoginImage from '../../assets/login.svg';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
+import { useNavigate } from 'react-router-dom';
+import { getItem, setItem } from '../../utils/storage';
+import { notifyError } from '../../utils/notifications';
+import api from '../../services/api';
 
 function ModalLogin() {
-  const { setOpenModalLogin } = useContext(GlobalContext);
+  const {
+    setOpenModalLogin,
+    email,
+    setEmail,
+    passwordApp,
+    setPasswordApp,
+    showPasswordLogin,
+    setShowPasswordLogin
+  } = useContext(GlobalContext);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = getItem();
+
+    if (token) {
+      navigate('/main');
+    }
+  }, [navigate]);
+
+  async function handleSubmitLogin(e) {
+    e.preventDefault();
+
+    try {
+      if (!email || !passwordApp) {
+        return notifyError('Todos os campos são obrigatórios.');
+      }
+
+      const responseLogin = await api.post('/login', {
+        email,
+        senha: passwordApp
+      });
+
+      const { usuario, token } = responseLogin.data;
+
+      setItem('token', token);
+      setItem('userId', usuario.id);
+      setItem('userName', usuario.nome);
+      setItem('userBalance', usuario.saldo);
+
+      navigate('/main');
+
+    } catch (error) {
+      notifyError(error.response.data.mensagem);
+    }
+  }
 
   return (
     <div className='container-modal'>
@@ -16,11 +66,19 @@ function ModalLogin() {
           className='close-icon'
           src={BtnClose}
           alt='Fechar'
-          onClick={() => setOpenModalLogin(false)}
+          onClick={() => {
+            setOpenModalLogin(false)
+            setEmail('');
+            setPasswordApp('');
+            setShowPasswordLogin(false);
+          }}
         />
         <div className='content-form-login'>
           <h2>Entre no APP</h2>
-          <form className='form-login'>
+          <form
+            className='form-login'
+            onSubmit={handleSubmitLogin}
+          >
             <div className='mini-title mini-title-login'>
               <div className='btn-false btn-false-login'>
                 <span>Login</span>
@@ -33,15 +91,23 @@ function ModalLogin() {
                 <input
                   type='text'
                   name='email'
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className='container-input'>
                 <label htmlFor='password_app'>Senha do APP</label>
                 <input
-                  type='password'
+                  type={showPasswordLogin ? 'text' : 'password'}
                   name='password_app'
+                  value={passwordApp}
+                  onChange={(e) => setPasswordApp(e.target.value)}
                 />
-                <img src={EyeIcon} alt="Senha protegida" />
+                <img
+                  src={showPasswordLogin ? EyeCloseIcon : EyeIcon}
+                  alt="Senha protegida"
+                  onClick={() => setShowPasswordLogin(!showPasswordLogin)}
+                />
               </div>
             </div>
             <button className='btn-black btn-black-login'>Entrar</button>

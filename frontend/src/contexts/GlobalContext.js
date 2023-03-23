@@ -17,6 +17,9 @@ export function GlobalContextProvider({ children }) {
     const [formRegister, setFormRegister] = useState({ ...defaultFormRegister });
     const [showPasswordApp, setShowPasswordApp] = useState(false);
     const [showPasswordTransaction, setShowPasswordTransaction] = useState(false);
+    const [email, setEmail] = useState('');
+    const [passwordApp, setPasswordApp] = useState('');
+    const [showPasswordLogin, setShowPasswordLogin] = useState(false);
 
     return (
         <GlobalContext.Provider value={{
@@ -28,7 +31,13 @@ export function GlobalContextProvider({ children }) {
             showPasswordApp,
             setShowPasswordApp,
             showPasswordTransaction,
-            setShowPasswordTransaction
+            setShowPasswordTransaction,
+            email,
+            setEmail,
+            passwordApp,
+            setPasswordApp,
+            showPasswordLogin,
+            setShowPasswordLogin
         }}>
             {children}
         </GlobalContext.Provider>

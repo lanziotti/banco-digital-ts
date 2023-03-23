@@ -43,7 +43,7 @@ function Register() {
                 return notifyError('Todos os campos são obrigatórios.');
             }
 
-            const responseRegister = await api.post('/conta',
+            await api.post('/conta',
                 {
                     nome: formRegister.name,
                     cpf: formRegister.cpf,
@@ -55,9 +55,6 @@ function Register() {
                 }
             );
 
-            if (responseRegister.status > 204) {
-                return notifyError(responseRegister.data);
-            }
 
             notifySucess('Sua conta Digital Banking foi criada com sucesso!');
 
@@ -78,7 +75,7 @@ function Register() {
             navigate('/main');
 
         } catch (error) {
-            notifyError(error.response.status === 400 ? error.response.data[0].mensagem : error.response.data.mensagem);
+            notifyError(error.response.status === 400 && error.response.data.mensagem === 'Já existe uma conta aberta com esse CPF.' ? error.response.data.mensagem : error.response.data[0].mensagem);
         }
     }
 
