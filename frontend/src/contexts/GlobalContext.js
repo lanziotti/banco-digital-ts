@@ -20,6 +20,7 @@ export function GlobalContextProvider({ children }) {
     const [email, setEmail] = useState('');
     const [passwordApp, setPasswordApp] = useState('');
     const [showPasswordLogin, setShowPasswordLogin] = useState(false);
+    const [openModalAccountData, setOpenModalAccountData] = useState(false);
 
     return (
         <GlobalContext.Provider value={{
@@ -37,7 +38,9 @@ export function GlobalContextProvider({ children }) {
             passwordApp,
             setPasswordApp,
             showPasswordLogin,
-            setShowPasswordLogin
+            setShowPasswordLogin,
+            openModalAccountData,
+            setOpenModalAccountData
         }}>
             {children}
         </GlobalContext.Provider>

@@ -51,6 +51,10 @@ function ModalLogin() {
       setItem('userId', usuario.id);
       setItem('userName', usuario.nome);
       setItem('userBalance', usuario.saldo);
+      setItem('userCpf', usuario.cpf);
+      setItem('userEmail', usuario.email);
+      setItem('userDataNascimento', usuario.data_nascimento);
+      setItem('userTelefone', usuario.telefone);
 
       navigate('/main');
 

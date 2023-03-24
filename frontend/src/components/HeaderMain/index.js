@@ -16,8 +16,10 @@ function HeaderMain() {
     setFormRegister,
     defaultFormRegister,
     setShowPasswordApp,
-    setShowPasswordTransaction
+    setShowPasswordTransaction,
+    setOpenModalAccountData
   } = useContext(GlobalContext);
+  
   const navigate = useNavigate();
 
   function handleLogout() {
@@ -26,7 +28,7 @@ function HeaderMain() {
     setPasswordApp('');
     setOpenModalLogin(false);
     setShowPasswordLogin(false);
-    setFormRegister({...defaultFormRegister});
+    setFormRegister({ ...defaultFormRegister });
     setShowPasswordApp(false);
     setShowPasswordTransaction(false);
     navigate('/');
@@ -36,7 +38,10 @@ function HeaderMain() {
     <header className='header'>
       <img src={LogoImage} alt='Logo' />
       <div className='header-icons'>
-        <div className='container-user-data'>
+        <div
+          className='container-user-data'
+          onClick={() => setOpenModalAccountData(true)}
+        >
           <span>Dados da conta</span>
           <img src={UserIcon} alt='Dados do Usuário' />
         </div>
