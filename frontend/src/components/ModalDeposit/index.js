@@ -33,12 +33,12 @@ function ModalDeposit() {
         valor: Number(valueDeposit),
         senha: passwordDeposit
       },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
       notifySucess(responseDeposit.data.mensagem);
 
       const afterBalance = await loadBalance();
@@ -61,9 +61,13 @@ function ModalDeposit() {
           className='close-icon'
           src={BtnClose}
           alt='Fechar'
-          onClick={() => setOpenModalDeposit(false)}
+          onClick={() => {
+            setOpenModalDeposit(false)
+            setValueDeposit('');
+            setPasswordDeposit('');
+          }}
         />
-        <div className='content-form-deposit'>
+        <div className='content-form-deposit-new'>
           <div className='mini-title mini-title-deposit'>
             <div className='btn-false btn-false-login'>
               <span>Depósito</span>
@@ -102,7 +106,7 @@ function ModalDeposit() {
             <button className='btn-black btn-black-deposit'>Depositar</button>
           </form>
         </div>
-        <div className='content-image-login'>
+        <div className='content-image-deposit'>
           <img src={DepositImage} alt='Imagem Login' />
         </div>
       </div>

@@ -1,24 +1,27 @@
-import './styles.css';
-import HeaderMain from '../../components/HeaderMain';
+import { useContext, useEffect } from 'react';
 import CircleIcon from '../../assets/circle.svg';
 import DepositIcon from '../../assets/deposit.svg';
-import WithdrawIcon from '../../assets/withdraw.svg';
-import TransferIcon from '../../assets/transfer.svg';
 import ExtractIcon from '../../assets/extract.svg';
-import { getItem } from '../../utils/storage';
-import { useContext, useEffect } from 'react';
-import { GlobalContext } from '../../contexts/GlobalContext';
+import TransferIcon from '../../assets/transfer.svg';
+import WithdrawIcon from '../../assets/withdraw.svg';
+import HeaderMain from '../../components/HeaderMain';
 import ModalAccountData from '../../components/ModalAccountData';
 import ModalDeposit from '../../components/ModalDeposit';
-import { loadBalance } from '../../utils/requisitions';
+import ModalWithdraw from '../../components/ModalWithdraw';
+import { GlobalContext } from '../../contexts/GlobalContext';
 import { formatToMoney } from '../../utils/formatters';
+import { loadBalance } from '../../utils/requisitions';
+import { getItem } from '../../utils/storage';
+import './styles.css';
 
 
 function Main() {
     const { openModalAccountData,
         openModalDeposit,
         setOpenModalDeposit,
-        balance
+        balance,
+        openModalWithdraw,
+        setOpenModalWithdraw
     } = useContext(GlobalContext);
 
     const userName = getItem('userName');
@@ -60,7 +63,10 @@ function Main() {
                                 </div>
                                 <h4>Depósito</h4>
                             </div>
-                            <div className='patch'>
+                            <div
+                                className='patch'
+                                onClick={() => setOpenModalWithdraw(true)}
+                            >
                                 <div className='patch-img'>
                                     <img src={WithdrawIcon} alt='Saque' />
                                 </div>
@@ -91,6 +97,10 @@ function Main() {
             {
                 openModalDeposit &&
                 <ModalDeposit />
+            }
+            {
+                openModalWithdraw &&
+                <ModalWithdraw />
             }
         </>
     );
