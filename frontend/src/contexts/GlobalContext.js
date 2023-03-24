@@ -30,6 +30,11 @@ export function GlobalContextProvider({ children }) {
     const [showPasswordWithdraw, setShowPasswordWithdraw] = useState(false);
     const [valueWithdraw, setValueWithdraw] = useState('');
     const [passwordWithdraw, setPasswordWithdraw] = useState('');
+    const [openModalTransfer, setOpenModalTransfer] = useState(false);
+    const [showPasswordTransfer, setShowPasswordTransfer] = useState(false);
+    const [destinationAccountNumber, setDestinationAccountNumber] = useState('');
+    const [valueTransfer, setValueTransfer] = useState('');
+    const [passwordTransfer, setPasswordTransfer] = useState('');
 
     return (
         <GlobalContext.Provider value={{
@@ -67,7 +72,17 @@ export function GlobalContextProvider({ children }) {
             valueWithdraw,
             setValueWithdraw,
             passwordWithdraw,
-            setPasswordWithdraw
+            setPasswordWithdraw,
+            openModalTransfer,
+            setOpenModalTransfer,
+            showPasswordTransfer,
+            setShowPasswordTransfer,
+            destinationAccountNumber,
+            setDestinationAccountNumber,
+            valueTransfer,
+            setValueTransfer,
+            passwordTransfer,
+            setPasswordTransfer
         }}>
             {children}
         </GlobalContext.Provider>

@@ -8,6 +8,7 @@ import HeaderMain from '../../components/HeaderMain';
 import ModalAccountData from '../../components/ModalAccountData';
 import ModalDeposit from '../../components/ModalDeposit';
 import ModalWithdraw from '../../components/ModalWithdraw';
+import ModalTransfer from '../../components/ModalTransfer';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { formatToMoney } from '../../utils/formatters';
 import { loadBalance } from '../../utils/requisitions';
@@ -21,7 +22,9 @@ function Main() {
         setOpenModalDeposit,
         balance,
         openModalWithdraw,
-        setOpenModalWithdraw
+        setOpenModalWithdraw,
+        openModalTransfer,
+        setOpenModalTransfer
     } = useContext(GlobalContext);
 
     const userName = getItem('userName');
@@ -74,7 +77,10 @@ function Main() {
                             </div>
                         </div>
                         <div className='patchs'>
-                            <div className='patch'>
+                            <div
+                                className='patch'
+                                onClick={() => setOpenModalTransfer(true)}
+                            >
                                 <div className='patch-img'>
                                     <img src={TransferIcon} alt='Transação' />
                                 </div>
@@ -101,6 +107,10 @@ function Main() {
             {
                 openModalWithdraw &&
                 <ModalWithdraw />
+            }
+            {
+                openModalTransfer &&
+                <ModalTransfer />
             }
         </>
     );
