@@ -2,14 +2,25 @@ import './styles.css';
 import BtnClose from '../../assets/btn-close.svg';
 import CircleIcon from '../../assets/circle.svg';
 import AccountDataImage from '../../assets/account-data-page.svg';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { getItem } from '../../utils/storage';
+import { loadBalance } from '../../utils/requisitions';
+import { formatToDate, formatToMoney } from '../../utils/formatters';
 
 function ModalAccountData() {
   const {
-    setOpenModalAccountData
+    setOpenModalAccountData,
+    balance
   } = useContext(GlobalContext);
+
+  useEffect(() => {
+    async function showBalance() {
+      await loadBalance();
+    }
+
+    showBalance();
+  });
 
   const userId = getItem('userId');
   const userName = getItem('userName');
@@ -28,7 +39,7 @@ function ModalAccountData() {
           alt='Fechar'
           onClick={() => setOpenModalAccountData(false)}
         />
-        <div className='content-form-deposit'>
+        <div className='content-form-account-data'>
           <div className='mini-title mini-title-deposit'>
             <div className='btn-false btn-false-login'>
               <span>Dados da Conta</span>
@@ -54,7 +65,7 @@ function ModalAccountData() {
             </div>
             <div className='data-complete'>
               <span className='first'>Data de Nascimento</span>
-              <span className='second'>{`: ${userDataNascimento}`}</span>
+              <span className='second'>{`: ${formatToDate(userDataNascimento)}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>Telefone</span>
@@ -62,7 +73,7 @@ function ModalAccountData() {
             </div>
             <div className='data-complete'>
               <span className='first'>Saldo Atual</span>
-              <span className='second'>{`: ${userBalance}`}</span>
+              <span className='second'>{`: ${balance ? formatToMoney(Number(balance)) : formatToMoney(Number(userBalance))}`}</span>
             </div>
           </div>
           <button className='btn-yellow btn-update'>Atualizar Dados</button>

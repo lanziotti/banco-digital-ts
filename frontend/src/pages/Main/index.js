@@ -6,17 +6,31 @@ import WithdrawIcon from '../../assets/withdraw.svg';
 import TransferIcon from '../../assets/transfer.svg';
 import ExtractIcon from '../../assets/extract.svg';
 import { getItem } from '../../utils/storage';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import ModalAccountData from '../../components/ModalAccountData';
+import ModalDeposit from '../../components/ModalDeposit';
+import { loadBalance } from '../../utils/requisitions';
+import { formatToMoney } from '../../utils/formatters';
 
 
 function Main() {
-    const { openModalAccountData
+    const { openModalAccountData,
+        openModalDeposit,
+        setOpenModalDeposit,
+        balance
     } = useContext(GlobalContext);
 
     const userName = getItem('userName');
     const userBalance = getItem('userBalance');
+
+    useEffect(() => {
+        async function showBalance() {
+            await loadBalance();
+        }
+
+        showBalance();
+    });
 
     return (
         <>
@@ -32,12 +46,15 @@ function Main() {
                         </div>
                         <h2>{`Bem-vindo ${userName}`}</h2>
                         <h3>Saldo disponível:</h3>
-                        <h1>{`R$ ${userBalance}`}</h1>
+                        <h1>{balance ? formatToMoney(Number(balance)) : formatToMoney(Number(userBalance))}</h1>
                     </div>
                     <div className='container-patchs'>
                         <h4 className='patchs-title'>O que deseja fazer?</h4>
                         <div className='patchs'>
-                            <div className='patch'>
+                            <div
+                                className='patch'
+                                onClick={() => setOpenModalDeposit(true)}
+                            >
                                 <div className='patch-img'>
                                     <img src={DepositIcon} alt='Depósito' />
                                 </div>
@@ -70,6 +87,10 @@ function Main() {
             {
                 openModalAccountData &&
                 <ModalAccountData />
+            }
+            {
+                openModalDeposit &&
+                <ModalDeposit />
             }
         </>
     );
