@@ -132,7 +132,7 @@ function Register() {
                                     <label htmlFor='date_of_birth'>Data de Nascimento</label>
                                     <input
                                         placeholder='Ano-Mês-Dia. Ex: 1990-05-20'
-                                        type='text'
+                                        type='date'
                                         name='date_of_birth'
                                         value={formRegister.date_of_birth}
                                         onChange={handleChangeFormRegister}

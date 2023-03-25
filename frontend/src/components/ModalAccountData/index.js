@@ -11,7 +11,9 @@ import { formatToDate, formatToMoney } from '../../utils/formatters';
 function ModalAccountData() {
   const {
     setOpenModalAccountData,
-    balance
+    balance,
+    setOpenModalUpdate,
+    data
   } = useContext(GlobalContext);
 
   useEffect(() => {
@@ -49,34 +51,40 @@ function ModalAccountData() {
           <div className='content-data'>
             <div className='data-complete'>
               <span className='first'>Número</span>
-              <span className='second'>{`: ${userId}`}</span>
+              <span className='second'>{`: ${data ? data.id : userId}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>Nome do Titular</span>
-              <span className='second'>{`: ${userName}`}</span>
+              <span className='second'>{`: ${data ? data.nome : userName}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>CPF</span>
-              <span className='second'>{`: ${userCpf}`}</span>
+              <span className='second'>{`: ${data ? data.cpf : userCpf}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>E-mail</span>
-              <span className='second'>{`: ${userEmail}`}</span>
+              <span className='second'>{`: ${data ? data.email : userEmail}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>Data de Nascimento</span>
-              <span className='second'>{`: ${formatToDate(userDataNascimento)}`}</span>
+              <span className='second'>{`: ${data ? formatToDate(data.data_nascimento) : formatToDate(userDataNascimento)}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>Telefone</span>
-              <span className='second'>{`: ${userTelefone}`}</span>
+              <span className='second'>{`: ${data ? data.telefone : userTelefone}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>Saldo Atual</span>
               <span className='second'>{`: ${balance ? formatToMoney(Number(balance)) : formatToMoney(Number(userBalance))}`}</span>
             </div>
           </div>
-          <button className='btn-yellow btn-update'>Atualizar Dados</button>
+          <button
+            className='btn-yellow btn-update'
+            onClick={() => {
+              setOpenModalUpdate(true)
+              setOpenModalAccountData(false)
+            }}
+          >Atualizar Dados</button>
           <button className='btn-red btn-update'>Encerrar Conta</button>
         </div>
         <div className='content-image-account-data'>

@@ -17,8 +17,27 @@ export async function loadBalance() {
         }
 
         const { saldo } = responseBalance.data;
-        
+
         return saldo;
+
+    } catch (error) {
+        notifyError(error.response.data);
+    }
+}
+
+export async function loadUpdateData() {
+    try {
+        const responseUpdateData = await api.get('/conta', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        if (responseUpdateData.status > 204) {
+            return notifyError(responseUpdateData.data);
+        }
+        
+        return responseUpdateData.data;
 
     } catch (error) {
         notifyError(error.response.data);

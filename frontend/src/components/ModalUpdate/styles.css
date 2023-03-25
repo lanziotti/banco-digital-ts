@@ -39,14 +39,14 @@
     transform: scale(1.1);
 }
 
-.content-form-deposit {
+.content-form-update {
     display: flex;
     flex-direction: column;
 
     padding: 18px 61px 0 57px;
 }
 
-.form-login {
+.form-update {
     display: flex;
     flex-direction: column;
     align-items: center;

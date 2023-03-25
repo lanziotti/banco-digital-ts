@@ -9,9 +9,10 @@ import ModalAccountData from '../../components/ModalAccountData';
 import ModalDeposit from '../../components/ModalDeposit';
 import ModalWithdraw from '../../components/ModalWithdraw';
 import ModalTransfer from '../../components/ModalTransfer';
+import ModalUpdate from '../../components/ModalUpdate';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { formatToMoney } from '../../utils/formatters';
-import { loadBalance } from '../../utils/requisitions';
+import { loadBalance, loadUpdateData } from '../../utils/requisitions';
 import { getItem } from '../../utils/storage';
 import './styles.css';
 
@@ -24,7 +25,9 @@ function Main() {
         openModalWithdraw,
         setOpenModalWithdraw,
         openModalTransfer,
-        setOpenModalTransfer
+        setOpenModalTransfer,
+        openModalUpdate,
+        data
     } = useContext(GlobalContext);
 
     const userName = getItem('userName');
@@ -36,7 +39,13 @@ function Main() {
         }
 
         showBalance();
-    });
+
+        async function showUpdateData() {
+            await loadUpdateData();
+        }
+
+        showUpdateData();
+    }, []);
 
     return (
         <>
@@ -50,7 +59,7 @@ function Main() {
                             </div>
                             <img src={CircleIcon} alt='Imagem circulo' />
                         </div>
-                        <h2>{`Bem-vindo ${userName}`}</h2>
+                        <h2>{`Bem-vindo ${data ? data.nome : userName}`}</h2>
                         <h3>Saldo disponível:</h3>
                         <h1>{balance ? formatToMoney(Number(balance)) : formatToMoney(Number(userBalance))}</h1>
                     </div>
@@ -111,6 +120,10 @@ function Main() {
             {
                 openModalTransfer &&
                 <ModalTransfer />
+            }
+            {
+                openModalUpdate &&
+                <ModalUpdate />
             }
         </>
     );
