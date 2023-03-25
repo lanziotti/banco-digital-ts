@@ -2,10 +2,9 @@ import './styles.css';
 import BtnClose from '../../assets/btn-close.svg';
 import CircleIcon from '../../assets/circle.svg';
 import AccountDataImage from '../../assets/account-data-page.svg';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { getItem } from '../../utils/storage';
-import { loadBalance, loadUpdateData } from '../../utils/requisitions';
 import { formatToDate, formatToMoney } from '../../utils/formatters';
 
 function ModalAccountData() {
@@ -20,20 +19,6 @@ function ModalAccountData() {
     dateOfBirth,
     telephone
   } = useContext(GlobalContext);
-
-  useEffect(() => {
-    async function showBalance() {
-      await loadBalance();
-    }
-
-    showBalance();
-
-    async function showUpdateData() {
-      await loadUpdateData();
-    }
-
-    showUpdateData();
-  }, []);
 
   const userId = getItem('userId');
   const userName = getItem('userName');

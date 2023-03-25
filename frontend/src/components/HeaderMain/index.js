@@ -17,7 +17,14 @@ function HeaderMain() {
     defaultFormRegister,
     setShowPasswordApp,
     setShowPasswordTransaction,
-    setOpenModalAccountData
+    setOpenModalAccountData,
+    setName,
+    setCpf,
+    setEmailData,
+    setDateOfBirth,
+    setTelephone,
+    setId,
+    setBalance
   } = useContext(GlobalContext);
   
   const navigate = useNavigate();
@@ -31,6 +38,15 @@ function HeaderMain() {
     setFormRegister({ ...defaultFormRegister });
     setShowPasswordApp(false);
     setShowPasswordTransaction(false);
+
+    setId(0);
+    setName('');
+    setCpf('');
+    setEmailData('');
+    setDateOfBirth('');
+    setTelephone('');
+    setBalance('');
+
     navigate('/');
   }
 

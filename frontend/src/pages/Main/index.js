@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import CircleIcon from '../../assets/circle.svg';
 import DepositIcon from '../../assets/deposit.svg';
 import ExtractIcon from '../../assets/extract.svg';
@@ -12,7 +12,6 @@ import ModalTransfer from '../../components/ModalTransfer';
 import ModalUpdate from '../../components/ModalUpdate';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { formatToMoney } from '../../utils/formatters';
-import { loadBalance, loadUpdateData } from '../../utils/requisitions';
 import { getItem } from '../../utils/storage';
 import './styles.css';
 
@@ -32,20 +31,6 @@ function Main() {
 
     const userName = getItem('userName');
     const userBalance = getItem('userBalance');
-
-    useEffect(() => {
-        async function showBalance() {
-            await loadBalance();
-        }
-
-        showBalance();
-
-        async function showUpdateData() {
-            await loadUpdateData();
-        }
-
-        showUpdateData();
-    }, []);
 
     return (
         <>
