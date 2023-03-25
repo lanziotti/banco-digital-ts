@@ -55,6 +55,7 @@ export function GlobalContextProvider({ children }) {
     const [emailData, setEmailData] = useState('');
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [telephone, setTelephone] = useState('');
+    const [openModalDeleteAccount, setOpenModalDeleteAccount] = useState(false);
 
     return (
         <GlobalContext.Provider value={{
@@ -123,7 +124,9 @@ export function GlobalContextProvider({ children }) {
             dateOfBirth,
             setDateOfBirth,
             telephone,
-            setTelephone
+            setTelephone,
+            openModalDeleteAccount,
+            setOpenModalDeleteAccount
         }}>
             {children}
         </GlobalContext.Provider>

@@ -10,6 +10,7 @@ import ModalDeposit from '../../components/ModalDeposit';
 import ModalWithdraw from '../../components/ModalWithdraw';
 import ModalTransfer from '../../components/ModalTransfer';
 import ModalUpdate from '../../components/ModalUpdate';
+import ModalDeleteAccount from '../../components/ModalDeleteAccount';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { formatToMoney } from '../../utils/formatters';
 import { getItem } from '../../utils/storage';
@@ -26,7 +27,8 @@ function Main() {
         openModalTransfer,
         setOpenModalTransfer,
         openModalUpdate,
-        name
+        name,
+        openModalDeleteAccount
     } = useContext(GlobalContext);
 
     const userName = getItem('userName');
@@ -109,6 +111,10 @@ function Main() {
             {
                 openModalUpdate &&
                 <ModalUpdate />
+            }
+            {
+                openModalDeleteAccount &&
+                <ModalDeleteAccount />
             }
         </>
     );

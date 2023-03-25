@@ -17,7 +17,8 @@ function ModalAccountData() {
     cpf,
     emailData,
     dateOfBirth,
-    telephone
+    telephone,
+    setOpenModalDeleteAccount
   } = useContext(GlobalContext);
 
   const userId = getItem('userId');
@@ -81,7 +82,10 @@ function ModalAccountData() {
               setOpenModalAccountData(false)
             }}
           >Atualizar Dados</button>
-          <button className='btn-red btn-update'>Encerrar Conta</button>
+          <button
+            className='btn-red btn-update'
+            onClick={() => setOpenModalDeleteAccount(true)}
+          >Encerrar Conta</button>
         </div>
         <div className='content-image-account-data'>
           <img src={AccountDataImage} alt='Imagem Login' />

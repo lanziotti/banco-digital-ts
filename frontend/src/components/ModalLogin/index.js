@@ -77,7 +77,7 @@ function ModalLogin() {
             setShowPasswordLogin(false);
           }}
         />
-        <div className='content-form-login'>
+        <div className='content-form-login-new'>
           <h2>Entre no APP</h2>
           <form
             className='form-login'

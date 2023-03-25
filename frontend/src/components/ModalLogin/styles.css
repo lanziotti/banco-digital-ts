@@ -39,7 +39,7 @@
     transform: scale(1.1);
 }
 
-.content-form-login {
+.content-form-login-new {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +47,7 @@
     padding: 89px 84px 0 27px;
 }
 
-.content-form-login h2 {
+.content-form-login-new h2 {
     font-weight: 500;
     font-size: 32px;
 
