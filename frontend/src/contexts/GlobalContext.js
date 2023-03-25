@@ -14,13 +14,13 @@ export function GlobalContextProvider({ children }) {
     }
 
     const defaultFormUpdate = {
-        name: '',
+        id: 0,
+        nome: '',
         cpf: '',
-        date_of_birth: '',
-        telephone: '',
         email: '',
-        password_app: '',
-        password_transaction: ''
+        data_nascimento: '',
+        telefone: '',
+        saldo: ''
     }
 
     const [openModalLogin, setOpenModalLogin] = useState(false);
@@ -49,7 +49,12 @@ export function GlobalContextProvider({ children }) {
     const [showPasswordUpdateApp, setShowPasswordUpdateApp] = useState(false);
     const [showPasswordUpdateTransaction, setShowPasswordUpdateTransaction] = useState(false);
     const [formUpdate, setFormUpdate] = useState({ ...defaultFormRegister });
-    const [data, setData] = useState({...defaultFormUpdate});
+    const [id, setId] = useState(0);
+    const [name, setName] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [emailData, setEmailData] = useState('');
+    const [dateOfBirth, setDateOfBirth] = useState('');
+    const [telephone, setTelephone] = useState('');
 
     return (
         <GlobalContext.Provider value={{
@@ -107,8 +112,18 @@ export function GlobalContextProvider({ children }) {
             defaultFormUpdate,
             formUpdate,
             setFormUpdate,
-            data,
-            setData
+            id,
+            setId,
+            name,
+            setName,
+            cpf,
+            setCpf,
+            emailData,
+            setEmailData,
+            dateOfBirth,
+            setDateOfBirth,
+            telephone,
+            setTelephone
         }}>
             {children}
         </GlobalContext.Provider>

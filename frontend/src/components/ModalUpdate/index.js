@@ -21,7 +21,12 @@ function ModalUpdate() {
     formUpdate,
     setFormUpdate,
     defaultFormUpdate,
-    setData
+    setName,
+    setCpf,
+    setEmailData,
+    setDateOfBirth,
+    setTelephone,
+    setId
   } = useContext(GlobalContext);
 
   const token = getItem('token');
@@ -49,12 +54,17 @@ function ModalUpdate() {
 
       const updateData = await loadUpdateData();
       
+      setId(updateData.id);
+      setName(updateData.nome);
+      setCpf(updateData.cpf);
+      setEmailData(updateData.email);
+      setDateOfBirth(updateData.data_nascimento);
+      setTelephone(updateData.telefone);
       setFormUpdate({ ...defaultFormUpdate });
       setShowPasswordUpdateApp(false);
       setShowPasswordUpdateTransaction(false);
       setOpenModalUpdate(false);
-      setData({...updateData});
-
+      
     } catch (error) {
       notifyError(error.response.status === 400 ? error.response.data[0].mensagem : error.response.data.mensagem);
     }

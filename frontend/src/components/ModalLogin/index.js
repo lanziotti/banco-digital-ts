@@ -117,7 +117,7 @@ function ModalLogin() {
             <button className='btn-black btn-black-login'>Entrar</button>
           </form>
         </div>
-        <div className='content-image-login'>
+        <div className='content-image-login-new'>
           <img src={LoginImage} alt='Imagem Login' />
         </div>
       </div>

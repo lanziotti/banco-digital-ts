@@ -27,7 +27,7 @@ function Main() {
         openModalTransfer,
         setOpenModalTransfer,
         openModalUpdate,
-        data
+        name
     } = useContext(GlobalContext);
 
     const userName = getItem('userName');
@@ -59,7 +59,7 @@ function Main() {
                             </div>
                             <img src={CircleIcon} alt='Imagem circulo' />
                         </div>
-                        <h2>{`Bem-vindo ${data ? data.nome : userName}`}</h2>
+                        <h2>{`Bem-vindo ${name ? name : userName}`}</h2>
                         <h3>Saldo disponível:</h3>
                         <h1>{balance ? formatToMoney(Number(balance)) : formatToMoney(Number(userBalance))}</h1>
                     </div>

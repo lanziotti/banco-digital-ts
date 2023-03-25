@@ -5,7 +5,7 @@ import AccountDataImage from '../../assets/account-data-page.svg';
 import { useContext, useEffect } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { getItem } from '../../utils/storage';
-import { loadBalance } from '../../utils/requisitions';
+import { loadBalance, loadUpdateData } from '../../utils/requisitions';
 import { formatToDate, formatToMoney } from '../../utils/formatters';
 
 function ModalAccountData() {
@@ -13,7 +13,12 @@ function ModalAccountData() {
     setOpenModalAccountData,
     balance,
     setOpenModalUpdate,
-    data
+    id,
+    name,
+    cpf,
+    emailData,
+    dateOfBirth,
+    telephone
   } = useContext(GlobalContext);
 
   useEffect(() => {
@@ -22,7 +27,13 @@ function ModalAccountData() {
     }
 
     showBalance();
-  });
+
+    async function showUpdateData() {
+      await loadUpdateData();
+    }
+
+    showUpdateData();
+  }, []);
 
   const userId = getItem('userId');
   const userName = getItem('userName');
@@ -51,27 +62,27 @@ function ModalAccountData() {
           <div className='content-data'>
             <div className='data-complete'>
               <span className='first'>Número</span>
-              <span className='second'>{`: ${data ? data.id : userId}`}</span>
+              <span className='second'>{`: ${id ? id : userId}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>Nome do Titular</span>
-              <span className='second'>{`: ${data ? data.nome : userName}`}</span>
+              <span className='second'>{`: ${name ? name : userName}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>CPF</span>
-              <span className='second'>{`: ${data ? data.cpf : userCpf}`}</span>
+              <span className='second'>{`: ${cpf ? cpf : userCpf}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>E-mail</span>
-              <span className='second'>{`: ${data ? data.email : userEmail}`}</span>
+              <span className='second'>{`: ${emailData ? emailData : userEmail}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>Data de Nascimento</span>
-              <span className='second'>{`: ${data ? formatToDate(data.data_nascimento) : formatToDate(userDataNascimento)}`}</span>
+              <span className='second'>{`: ${dateOfBirth ? formatToDate(dateOfBirth) : formatToDate(userDataNascimento)}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>Telefone</span>
-              <span className='second'>{`: ${data ? data.telefone : userTelefone}`}</span>
+              <span className='second'>{`: ${telephone ? telephone : userTelefone}`}</span>
             </div>
             <div className='data-complete'>
               <span className='first'>Saldo Atual</span>
