@@ -21,6 +21,10 @@ export class TransferController {
                 return res.status(404).json({ mensagem: "Essa conta de destino não existe. Por favor, verifique se o número da conta de destino está correta." });
             }
 
+            if (destinationAccount.id === id) {
+                return res.status(404).json({ mensagem: "Não é possível fazer uma TRANSFERÊNCIA para a sua própria conta. Para isso, faça um DEPÓSITO." });
+            }
+
             if (valor <= 0) {
                 return res.status(404).json({ mensagem: "Não é possível fazer uma TRANSFERÊNCIA com valores zerados ou negativos." });
             }
