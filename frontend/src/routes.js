@@ -2,6 +2,7 @@ import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Home from './pages/Home';
 import Main from './pages/Main';
+import Extract from './pages/Extract';
 import Register from './pages/Register';
 import { getItem } from './utils/storage';
 
@@ -21,6 +22,7 @@ function AppRoutes() {
 
                 <Route element={<ProtectedRoutes redirectTo='/' />}>
                     <Route path='/main' element={<Main />} />
+                    <Route path='/extract' element={<Extract />} />
                 </Route>
             </Routes>
         </>

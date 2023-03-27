@@ -56,6 +56,10 @@ export function GlobalContextProvider({ children }) {
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [telephone, setTelephone] = useState('');
     const [openModalDeleteAccount, setOpenModalDeleteAccount] = useState(false);
+    const [depositsTransactions, setDepositsTransactions] = useState([]);
+    const [withdrawTransactions, setWithdrawTransactions] = useState([]);
+    const [sentTransfers, setSentTransfers] = useState([]);
+    const [incomingTransfers, setIncomingTransfers] = useState([]);
 
     return (
         <GlobalContext.Provider value={{
@@ -126,7 +130,15 @@ export function GlobalContextProvider({ children }) {
             telephone,
             setTelephone,
             openModalDeleteAccount,
-            setOpenModalDeleteAccount
+            setOpenModalDeleteAccount,
+            depositsTransactions,
+            setDepositsTransactions,
+            withdrawTransactions,
+            setWithdrawTransactions,
+            sentTransfers,
+            setSentTransfers,
+            incomingTransfers,
+            setIncomingTransfers
         }}>
             {children}
         </GlobalContext.Provider>

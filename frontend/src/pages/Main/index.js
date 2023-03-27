@@ -15,6 +15,7 @@ import { GlobalContext } from '../../contexts/GlobalContext';
 import { formatToMoney } from '../../utils/formatters';
 import { getItem } from '../../utils/storage';
 import './styles.css';
+import { useNavigate } from 'react-router-dom';
 
 
 function Main() {
@@ -30,6 +31,8 @@ function Main() {
         name,
         openModalDeleteAccount
     } = useContext(GlobalContext);
+
+    const navigate = useNavigate();
 
     const userName = getItem('userName');
     const userBalance = getItem('userBalance');
@@ -82,7 +85,10 @@ function Main() {
                                 </div>
                                 <h4>Transferência</h4>
                             </div>
-                            <div className='patch'>
+                            <div
+                                className='patch'
+                                onClick={() => navigate('/extract')}
+                            >
                                 <div className='patch-img'>
                                     <img src={ExtractIcon} alt='Extrato' />
                                 </div>

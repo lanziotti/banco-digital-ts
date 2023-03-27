@@ -49,3 +49,26 @@ export async function loadUpdateData() {
         notifyError(error.response.data);
     }
 }
+
+export async function loadExtract() {
+    let token = '';
+
+    token = getItem('token');
+
+    try {
+        const responseExtract = await api.get('/extrato', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        if (responseExtract.status > 204) {
+            return notifyError(responseExtract.data);
+        }
+
+        return responseExtract.data;
+
+    } catch (error) {
+        notifyError(error.response.data);
+    }
+}
