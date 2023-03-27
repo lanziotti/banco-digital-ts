@@ -5,8 +5,7 @@
 }
 
 .container {
-    width: 100vw;
-    min-height: 100%;
+    min-height: 100vh;
     background-color: #FDFAF3;
     border-radius: 80px;
 }
