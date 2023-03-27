@@ -9,13 +9,21 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #0E0E0E;
-  height: 100vh;
+  font-size: 1.6rem;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 code {

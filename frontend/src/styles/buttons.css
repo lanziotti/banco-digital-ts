@@ -4,15 +4,15 @@ button {
     cursor: pointer;
 
     font-weight: 700;
-    font-size: 20px;
+    font-size: 2rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 21px 46px;
+    padding: 2.1rem 4.6rem;
 
-    border-radius: 50px;
+    border-radius: 5rem;
 }
 
 button:hover {
@@ -30,12 +30,12 @@ button:hover {
 }
 
 .btn-yellow {
-    height: 55.96px;
+    height: 5.596rem;
 
     background-color: #F4A01F;
     color: #FDFAF3;
 
-    padding: 17px 20px;
+    padding: 1.7rem 2rem;
 }
 
 .btn-yellow:hover, .btn-red:hover, .btn-green:hover {
@@ -47,7 +47,7 @@ button:hover {
     background-color: #E84C4C;
     color: #FDFAF3;
 
-    padding: 17px 23px;
+    padding: 1.7rem 2.3rem;
 }
 
 .btn-green {
