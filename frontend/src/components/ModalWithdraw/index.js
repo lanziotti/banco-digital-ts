@@ -56,7 +56,7 @@ function ModalWithdraw() {
 
   return (
     <div className='container-modal'>
-      <div className='content-modal'>
+      <div className='content-modal-withdraw'>
         <img
           className='close-icon'
           src={BtnClose}

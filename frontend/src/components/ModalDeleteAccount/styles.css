@@ -14,13 +14,13 @@
     left: 0;
 }
 
-.content-modal {
-    width: 895px;
-    height: 520px;
+.content-modal-delete {
+    width: 89.5rem;
+    height: 52rem;
 
     background-color: #FDFAF3;
     border: 1px solid #0E0E0E;
-    border-radius: 10px;
+    border-radius: 1rem;
 
     display: flex;
 
@@ -29,8 +29,8 @@
 
 .close-icon {
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 2.5rem;
+    right: 2.5rem;
 
     cursor: pointer;
 }
@@ -44,30 +44,39 @@
     flex-direction: column;
     align-items: center;
 
-    padding: 102px 0 0 14px;
+    padding: 10.2rem 0 0 1.4rem;
 }
 
 .content-form-login h2 {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 31px;
+    font-size: 2.4rem;
+    line-height: 3.1rem;
     text-align: center;
 
     color: #000000;
 
-    margin-bottom: 38px;
+    margin-bottom: 3.8rem;
 }
 
 .btn-black-login {
-    width: 192px;
-    height: 55.96px;
+    width: 19.2rem;
+    height: 5.596rem;
 }
 
 .btn-green-size {
-    margin-bottom: 25px;
+    margin-bottom: 2.5rem;
 }
 
 .content-image-login {
-    padding-top: 10px;
-    padding-right: 25px;
+    padding-top: 1rem;
+    padding-right: 2.5rem;
+}
+
+@media only screen and (max-width: 1260px) {
+    .content-modal-delete {
+        width: 38rem;
+        height: 54rem;
+
+        padding: 2.4rem 0 0 0;
+    }
 }

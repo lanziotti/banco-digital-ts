@@ -56,7 +56,7 @@ function ModalDeposit() {
 
   return (
     <div className='container-modal'>
-      <div className='content-modal'>
+      <div className='content-modal-deposit'>
         <img
           className='close-icon'
           src={BtnClose}

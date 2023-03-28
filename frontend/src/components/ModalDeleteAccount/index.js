@@ -59,7 +59,7 @@ function ModalDeleteAccount() {
 
   return (
     <div className='container-modal'>
-      <div className='content-modal'>
+      <div className='content-modal-delete'>
         <img
           className='close-icon'
           src={BtnClose}

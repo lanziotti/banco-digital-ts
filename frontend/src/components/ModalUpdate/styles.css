@@ -14,13 +14,13 @@
     left: 0;
 }
 
-.content-modal {
-    width: 895px;
-    height: 520px;
+.content-modal-update {
+    width: 89.5rem;
+    height: 52rem;
 
     background-color: #FDFAF3;
     border: 1px solid #0E0E0E;
-    border-radius: 10px;
+    border-radius: 1rem;
 
     display: flex;
 
@@ -29,8 +29,8 @@
 
 .close-icon {
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 2.5rem;
+    right: 2.5rem;
 
     cursor: pointer;
 }
@@ -43,7 +43,7 @@
     display: flex;
     flex-direction: column;
 
-    padding: 18px 61px 0 57px;
+    padding: 1.8rem 6.1rem 0 5.7rem;
 }
 
 .form-update {
@@ -55,41 +55,54 @@
 .container-input-update {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.5rem;
 
-    margin-bottom: 3px;
+    margin-bottom: 0.3rem;
 
     position: relative;
 
 }
 
 .container-input-update img {
-    width: 20px;
-    height: 20px;
+    width: 2rem;
+    height: 2rem;
 
     position: absolute;
-    top: 25px;
-    right: 10px;
+    top: 2.5rem;
+    right: 1rem;
 
     cursor: pointer;
 }
 
 .mini-title-deposit {
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
 }
 
 .btn-false-login {
-    width: 150px;
-    height: 31.42px;
+    width: 15rem;
+    height: 3.142rem;
 }
 
 .btn-black-deposit {
-    width: 192px;
-    height: 57px;
+    width: 19.2rem;
+    height: 5.7rem;
 
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
 .content-image-login {
-    padding-top: 3px;
+    padding-top: 0.3rem;
+}
+
+@media only screen and (max-width: 1260px) {
+    .content-modal-update {
+        width: 38rem;
+        height: 54rem;
+
+        padding: 2.4rem 0 0 0;
+    }
+
+    .content-image-login {
+        display: none;
+    }
 }

@@ -60,7 +60,7 @@ function ModalTransfer() {
 
   return (
     <div className='container-modal'>
-      <div className='content-modal'>
+      <div className='content-modal-transfer'>
         <img
           className='close-icon'
           src={BtnClose} alt='Fechar'
