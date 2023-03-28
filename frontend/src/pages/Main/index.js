@@ -39,7 +39,7 @@ function Main() {
 
     return (
         <>
-            <div className='container'>
+            <div className='container-main-global'>
                 <HeaderMain />
                 <main className='container-main'>
                     <div className='container-balance'>

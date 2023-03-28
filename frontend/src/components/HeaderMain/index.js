@@ -26,7 +26,7 @@ function HeaderMain() {
     setId,
     setBalance
   } = useContext(GlobalContext);
-  
+
   const navigate = useNavigate();
 
   function handleLogout() {
@@ -54,6 +54,18 @@ function HeaderMain() {
     <header className='header'>
       <img src={LogoImage} alt='Logo' />
       <div className='header-icons'>
+        <div className='container-user-data-responsive'>
+          <img
+            src={UserIcon}
+            alt='Dados do Usuário'
+            onClick={() => setOpenModalAccountData(true)}
+          />
+          <img
+            src={LogoutIcon}
+            alt='Sair'
+            onClick={handleLogout}
+          />
+        </div>
         <div
           className='container-user-data'
           onClick={() => setOpenModalAccountData(true)}

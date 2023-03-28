@@ -1,12 +1,18 @@
+.container-main-global {
+    min-height: 100vh;
+    background-color: #FDFAF3;
+    border-radius: 8rem;
+}
+
 .container-main {
     display: flex;
     justify-content: space-between;
 
-    padding: 0 75px 0 75px;
+    padding: 0 7.5rem 0 7.5rem;
 }
 
 .container-balance {
-    margin-top: 64px;
+    margin-top: 6.4rem;
 }
 
 .container-balance h1, .container-balance h2, .container-patchs h4 {
@@ -16,27 +22,27 @@
 }
 
 .container-balance h2 {
-    font-size: 64px;
+    font-size: 6.4rem;
 
-    margin: 41px 0 65px 0;
+    margin: 4.1rem 0 6.5rem 0;
 }
 
 .container-balance h3 {
-    font-size: 48px;
+    font-size: 4.8rem;
 
-    margin-bottom: 45px;
+    margin-bottom: 4.5rem;
 }
 
 .container-balance h1 {
     font-weight: 700;
-    font-size: 96px;
+    font-size: 9.6rem;
 
     color: #000000;
 }
 
 .btn-false-main {
-    width: 169.81px;
-    height: 38.1px;
+    width: 16.981rem;
+    height: 3.81rem;
 }
 
 .container-patchs {
@@ -44,29 +50,29 @@
     flex-direction: column;
     align-items: center;
 
-    margin-top: 72px;
+    margin-top: 7.2rem;
 }
 
 .container-patchs h4 {
-    font-size: 32px;
+    font-size: 3.2rem;
 }
 
 .patchs-title {
-    margin-bottom: 42px;
+    margin-bottom: 4.2rem;
 }
 
 .patchs {
     display: flex;
-    gap: 61px;
+    gap: 6.1rem;
 
-    margin-bottom: 48px;
+    margin-bottom: 4.8rem;
 }
 
 .patch {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
 
     cursor: pointer;
 }
@@ -76,8 +82,8 @@
 }
 
 .patch-img {
-    width: 200px;
-    height: 200px;
+    width: 20rem;
+    height: 20rem;
 
     background-color: #46EB85;
 
@@ -88,6 +94,53 @@
 }
 
 .patch-img img {
-    width: 125px;
-    height: 125px;
+    width: 12.5rem;
+    height: 12.5rem;
+}
+
+@media only screen and (max-width: 1260px) {
+    .container-main-global {
+        min-width: min-content;
+        min-height: 131vh;
+    }
+
+    .container-main {
+        gap: 2rem;
+        padding: 0 6.5rem 0 6.5rem;
+    }
+
+    .container-balance h1 {
+        font-size: 7.6rem;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .container-main-global {
+        min-height: 203vh;
+        border-radius: 0;
+    }
+
+    .container-main {
+        flex-direction: column;
+    }
+
+    .container-balance h1 {
+        font-size: 9.6rem;
+    }
+
+    .patch:hover {
+        transform: scale(1);
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .container-main-global {
+        min-height: 244vh;
+    }
+}
+
+@media only screen and (max-width: 279px) {
+    .container-main-global {
+        min-height: 400vh;
+    }
 }

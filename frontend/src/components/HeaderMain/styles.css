@@ -1,26 +1,49 @@
 .header-icons {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 6rem;
 }
 
 .header-icons span {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 2rem;
 
     color: #000000;
 }
 
 .container-user-data,
-.container-logout {
+.container-logout,
+.container-user-data-responsive {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
 
     cursor: pointer;
 }
 
-.container-user-data:hover, .container-logout:hover {
+.container-user-data,
+.container-logout {
+    gap: 0.5rem;
+}
+
+.container-user-data-responsive {
+    display: none;
+    gap: 1rem;
+}
+
+.container-user-data:hover,
+.container-logout:hover {
     transform: scale(1.1);
+}
+
+@media only screen and (max-width: 920px) {
+    .container-user-data-responsive {
+        display: flex;
+        gap: 4rem;
+    }
+
+    .container-user-data,
+    .container-logout {
+        display: none;
+    }
 }
