@@ -89,7 +89,7 @@ function Register() {
 
     return (
         <>
-            <div className='container'>
+            <div className='container-register'>
                 <HeaderLogin />
                 <main className='main-register'>
                     <div className='content-paragraph'>

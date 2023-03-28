@@ -1,34 +1,40 @@
+.container-register {
+    min-height: 100vh;
+    background-color: #FDFAF3;
+    border-radius: 8rem;
+}
+
 .main-register {
     height: 100%;
 
     display: flex;
     justify-content: space-between;
 
-    padding: 26px 75px 57px 75px;
+    padding: 2.6rem 7.5rem 5.7rem 7.5rem;
 }
 
 .content-paragraph {
-    margin-top: 22px;
+    margin-top: 2.2rem;
 }
 
 .content-paragraph p {
-    width: 346px;
-    height: 92px;
+    width: 34.6rem;
+    height: 9.2rem;
 
     font-weight: 500;
-    font-size: 24px;
+    font-size: 2.4rem;
 
     color: #000000;
 }
 
 .content-paragraph img {
-    width: 801px;
-    height: 550px;
+    width: 80.1rem;
+    height: 55rem;
 }
 
 .btn-false-register {
-    width: 150px;
-    height: 32px;
+    width: 15rem;
+    height: 3.2rem;
 }
 
 .form-register {
@@ -37,13 +43,13 @@
     align-items: center;
 
     border: 2px solid #0E0E0E;
-    border-radius: 10px;
+    border-radius: 1rem;
 
-    padding: 20px 30px;
+    padding: 2rem 3rem;
 }
 
 .container-inputs {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 1440px) {
@@ -52,8 +58,59 @@
     
         display: flex;
         justify-content: center;
-        gap: 31px;
+        gap: 3.1rem;
     
-        padding: 26px 75px 57px 75px;
+        padding: 2.6rem 7.5rem 5.7rem 7.5rem;
+    }
+}
+
+@media only screen and (max-width: 1260px) {
+    .container-register {
+        min-width: min-content;
+        min-height: 126vh;
+    }
+
+    .content-paragraph img {
+        width: 70.1rem;
+        height: 45rem;
+
+        padding-right: 2.2rem;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .container-register {
+        min-height: 100vh;
+        border-radius: 0;
+    }
+
+    .main-register {
+        flex-direction: column;
+    }
+
+    .content-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin-top: 2rem;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .container-register {
+        min-height: 210vh;
+    }
+}
+
+@media only screen and (max-width: 396px) {
+    .container-register {
+        min-height: 236vh;
+    }
+}
+
+@media only screen and (max-width: 282px) {
+    .container-register {
+        min-height: 304vh;
     }
 }
