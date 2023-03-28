@@ -14,13 +14,13 @@
     left: 0;
 }
 
-.content-modal {
-    width: 895px;
-    height: 520px;
+.content-modal-login {
+    width: 89.5rem;
+    height: 52rem;
 
     background-color: #FDFAF3;
     border: 1px solid #0E0E0E;
-    border-radius: 10px;
+    border-radius: 1rem;
 
     display: flex;
 
@@ -29,8 +29,8 @@
 
 .close-icon {
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 2.5rem;
+    right: 2.5rem;
 
     cursor: pointer;
 }
@@ -44,44 +44,95 @@
     flex-direction: column;
     align-items: center;
 
-    padding: 89px 84px 0 27px;
+    padding: 8.9rem 8.4rem 0 2.7rem;
 }
 
 .content-form-login-new h2 {
     font-weight: 500;
-    font-size: 32px;
+    font-size: 3.2rem;
 
     color: #000000;
 
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 }
 
 .form-login {
     background-color: #FDFAF3;
     border: 2px solid #0E0E0E;
-    border-radius: 10px;
+    border-radius: 1rem;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    padding: 20px 26px;
+    padding: 2rem 2.6rem;
 }
 
 .mini-title-login {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .btn-false-login {
-    width: 150px;
-    height: 31.42px;
+    width: 15rem;
+    height: 3.142rem;
 }
 
 .btn-black-login {
-    width: 192px;
-    height: 55.96px;
+    width: 19.2rem;
+    height: 5.596rem;
 }
 
 .content-image-login-new {
-    padding-top: 70px;
+    padding-top: 7rem;
+}
+
+@media only screen and (max-width: 1260px) {
+    .content-modal-login {
+        width: 69.5rem;
+        height: 42rem;
+
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    .close-icon {
+        width: 4.7rem;
+        height: 4rem;
+    }
+
+    .content-form-login-new {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .content-image-login-new img {
+        width: 30rem;
+        height: 30rem;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .content-modal-login {
+        width: 38rem;
+        height: 38rem;
+    }
+
+    .close-icon {
+        width: 3rem;
+        height: 2.5rem;
+    }
+
+    .form-login {
+        border: none;
+        padding: 0;
+    }
+
+    .content-image-login-new {
+        display: none;
+    }
 }

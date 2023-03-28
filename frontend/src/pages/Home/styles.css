@@ -79,45 +79,84 @@
 @media only screen and (max-width: 1320px) {
     .content-text h2 {
         width: 80rem;
-    
+
         font-weight: 500;
-        font-size: 8rem;
+        font-size: 6rem;
         line-height: 8rem;
-    
+
         color: #000000;
     }
-    
+
     .content-text h1 {
-        font-size: 8.4rem;
+        font-size: 6.4rem;
         line-height: 8rem;
         text-decoration: underline;
-    
+
         color: #000000;
-    
+
         margin: 1rem 0;
     }
-    
+
     .content-text p {
         width: 55.283rem;
-    
+
         font-weight: 500;
-        font-size: 3.4rem;
+        font-size: 3rem;
         line-height: 4.1rem;
-    
+
         color: #000000;
-    
+
         margin: 3.1rem 0 2.4rem 0;
     }
 
-    .content-image {
-        display: none;
+    .content-image img {
+        width: 57.415rem;
+        height: 59.429rem;
+    }
+}
+
+@media only screen and (max-width: 1260px) {
+    .content-text h2 {
+        width: 80rem;
+
+        font-weight: 500;
+        font-size: 4rem;
+        line-height: 8rem;
+
+        color: #000000;
+    }
+
+    .content-text h1 {
+        font-size: 4.4rem;
+        line-height: 8rem;
+        text-decoration: underline;
+
+        color: #000000;
+
+        margin: 1rem 0;
+    }
+
+    .content-text p {
+        width: 55.283rem;
+
+        font-weight: 500;
+        font-size: 2.5rem;
+        line-height: 4.1rem;
+
+        color: #000000;
+
+        margin: 3.1rem 0 2.4rem 0;
+    }
+
+    .content-image img {
+        width: 37.415rem;
+        height: 39.429rem;
     }
 }
 
 @media only screen and (max-width: 920px) {
     .main-home {
         width: 100%;
-        min-height: 100vh;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
@@ -125,66 +164,119 @@
 
     .content-text {
         width: 50%;
-    
+
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-    
+
         margin: 5.7rem 0 12.3rem 7.5rem;
     }
 
     .content-text h2 {
         width: 59.887rem;
-    
+
         font-weight: 500;
         font-size: 4rem;
         line-height: 6rem;
-    
+
         color: #000000;
     }
-    
+
     .content-text h1 {
         font-size: 4.4rem;
         line-height: 6rem;
         text-decoration: underline;
-    
+
         color: #000000;
-    
+
         margin: 1rem 0;
     }
-    
+
     .content-text p {
         width: 45.283rem;
-    
+
         font-weight: 500;
         font-size: 2rem;
         line-height: 3.1rem;
-    
+
         color: #000000;
-    
+
         margin: 3.1rem 0 2.4rem 0;
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 912px) {
+    .main-home {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .content-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        margin: 5.7rem 0 0 7.5rem;
+    }
+
     .content-text h2 {
         width: 59.887rem;
-    
+
         font-weight: 500;
         font-size: 3rem;
         line-height: 6rem;
-    
+
         color: #000000;
     }
-    
+
     .content-text h1 {
         font-size: 3.4rem;
         line-height: 6rem;
         text-decoration: underline;
-    
+
         color: #000000;
-    
+
         margin: 1rem 0;
+    }
+
+    .content-image {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        margin: 0 7.5rem 4.3rem 0;
+    }
+
+    .content-image img {
+        width: 57.415rem;
+        height: 59.429rem;
+    }
+}
+
+@media only screen and (max-width: 732px) {
+    .container {
+        min-width: min-content;
+        min-height: 215vh;
+    }
+
+    .main-home {
+        min-height: 100vh;
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .container {
+        min-height: 240vh;
+    }
+}
+
+@media only screen and (max-width: 282px) {
+    .container {
+        min-height: 400vh;
     }
 }

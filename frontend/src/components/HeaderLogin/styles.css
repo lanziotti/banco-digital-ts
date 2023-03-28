@@ -1,7 +1,7 @@
 .login-targeting {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1.6rem;
 
     cursor: pointer;
 }
@@ -10,7 +10,26 @@
     transform: scale(1.1);
 }
 
+.login-responsive {
+    display: none;
+}
+
 .login-targeting span {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 2rem;
+}
+
+.login-responsive span {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+@media only screen and (max-width: 920px) {
+    .login-targeting {
+        display: none;
+    }
+
+    .login-responsive {
+        display: flex;
+    }
 }

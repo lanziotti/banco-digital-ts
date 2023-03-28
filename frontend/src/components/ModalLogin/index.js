@@ -65,7 +65,7 @@ function ModalLogin() {
 
   return (
     <div className='container-modal'>
-      <div className='content-modal'>
+      <div className='content-modal-login'>
         <img
           className='close-icon'
           src={BtnClose}

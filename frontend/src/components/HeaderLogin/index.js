@@ -11,6 +11,12 @@ function HeaderLogin() {
     <header className='header'>
       <img src={LogoImage} alt='Logo' />
       <div
+        className='login-responsive'
+        onClick={() => setOpenModalLogin(true)}
+      >
+        <span>Login</span>
+      </div>
+      <div
         className='login-targeting'
         onClick={() => setOpenModalLogin(true)}
       >
