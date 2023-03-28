@@ -109,8 +109,14 @@
     }
 }
 
-@media only screen and (max-width: 282px) {
+@media only screen and (max-width: 362px) {
     .container-register {
         min-height: 304vh;
+    }
+}
+
+@media only screen and (max-width: 282px) {
+    .container-register {
+        min-height: 400vh;
     }
 }
