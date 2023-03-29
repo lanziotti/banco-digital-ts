@@ -81,6 +81,7 @@ function ModalLogin() {
           <h2>Entre no APP</h2>
           <form
             className='form-login'
+            autoComplete='off'
             onSubmit={handleSubmitLogin}
           >
             <div className='mini-title mini-title-login'>

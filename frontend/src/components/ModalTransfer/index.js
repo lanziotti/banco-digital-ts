@@ -80,6 +80,7 @@ function ModalTransfer() {
           </div>
           <form
             className='form-transfer'
+            autoComplete='off'
             onSubmit={handleSubmitTransfer}
           >
             <div className='container-inputs'>

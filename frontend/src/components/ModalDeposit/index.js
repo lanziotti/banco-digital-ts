@@ -76,6 +76,7 @@ function ModalDeposit() {
           </div>
           <form
             className='form-deposit'
+            autoComplete='off'
             onSubmit={handleSubmitDeposit}
           >
             <div className='container-inputs'>

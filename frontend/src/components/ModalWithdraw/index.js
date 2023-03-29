@@ -76,6 +76,7 @@ function ModalWithdraw() {
           </div>
           <form
             className='form-withdraw'
+            autoComplete='off'
             onSubmit={handleSubmitWithdraw}
           >
             <div className='container-inputs'>

@@ -91,6 +91,7 @@ function ModalUpdate() {
           </div>
           <form
             className='form-update'
+            autoComplete='off'
             onSubmit={handleSubmitUpdate}
           >
             <div className='container-inputs-update'>
