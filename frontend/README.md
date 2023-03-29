@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+![Logo do projeto](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Logo.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Digital Banking
+Projeto que simula as funcionalidades de um Banco Digital/Caixa Eletrônico, seja para Desktop ou Mobile(Projeto responsivo).
 
-## Available Scripts
+## Tecnologias
 
-In the project directory, you can run:
+- ReactJS
+  - React-router-dom
+  - React-toastify
+- NodeJS
+  - Axios
+  - Date-fns
+  
+## Features
+   
+- Abertura de Conta
+- Login no sistema
+- Atualização dos dados do usuário
+- Realização de Depósitos
+- Realização de Saques
+- Realização de Transferência
+- Consulta ao Extrato Bancário
+- Encerramento da Conta
+- Logout do sistema
 
-### `npm start`
+ ## Como usar
+ 
+ ### 1 - Ao acessar você verá a página inicial (Home):
+ 
+ ![Página Home](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Página%20Home.png)
+ 
+ ### 2 - Se ainda não tiver uma conta cadastrada, clique no botão "Abrir Conta" para ser redirecionado para a página de cadastro:
+ 
+ ![Página Cadastro](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Página%20Register.png)
+ 
+ ### 3 - Se já tiver uma conta cadastrada, clique no botão "Já possui uma conta?" para abrir o Modal de Login:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Modal Login](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Modal%20Login.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 4 - Efetuando o cadastro corretamente da nova conta ou o Login, você será redirecionado para a página principal (Main), que conterá os dados da sua conta e as diversas funcionalidades do sistema:
 
-### `npm test`
+![Página Main](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Página%20Main.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 5 - Você pode clicar no patch "Depósito" para a realização do mesmo. Ao clicar irá abrir o Modal de Depósito:
 
-### `npm run build`
+![Modal Depósito](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Modal%20Deposit.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 6 - Você pode clicar no patch "Saque" para a realização do mesmo. Ao clicar irá abrir o Modal de Saque:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Modal Saque](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Modal%20Withdraw.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 7 - Você pode clicar no patch "Transferência" para a realização do mesmo. Ao clicar irá abrir o Modal de Transferência:
 
-### `npm run eject`
+![Modal Transferência](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Modal%20Transfer.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 8 - Você pode clicar no botão "Dados da conta" para a visualização de seus dados. Ao clicar irá abrir o Modal com os dados da sua conta, no qual você poderá escolher atualizar seus dados ou encerrar sua conta:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Modal Dados](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Modal%20Account%20Data.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 9 - Para atualizar os dados da sua conta, basta clicar no botão "Atualizar Dados". Ao clicar irá abrir um outro Modal que te permite inserir os novos dados para atualização:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Modal Atualização](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Modal%20Update.png)
 
-## Learn More
+### 10 - Já para encerrar sua conta, basta clicar no botão "Encerrar Conta". Ao clicar irá abrir um outro Modal que te solicita uma confirmação:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Modal Deleção](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Modal%20Delete.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 11 - Ao encerrar sua conta, você será retirado automaticamente do sistema, sendo redirecionado novamente para a página inicial (Home).
 
-### Code Splitting
+### 12 - Ainda dentro da página principal, se você clicar no patch "Extrato", será redirecionado para a página de consulta ao Extrato:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Página Extrato](https://github.com/lanziotti/banco-digital-ts/blob/master/frontend/public/Página%20Extract.png)
 
-### Analyzing the Bundle Size
+### 13 - E, finalmente, clicando no botão "Sair" no canto superior direito da página, você realizará o Logout e será redirecionado para a página inicial (Home).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#
 
-### Making a Progressive Web App
+## Links
+- Deploy na Vercel (acesse o programa por aqui): https://banco-digital-ts-front.vercel.app
+- Repositório: https://github.com/lanziotti/banco-digital-ts/tree/master/frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contatos
+- Email: rodrigolanziotti@yahoo.com.br  
+- LinkedIn: https://www.linkedin.com/in/rodrigo-lanziotti-16a64966/
 
-### Advanced Configuration
+## Versão
+1.0.0
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Autor
+**Rodrigo Lanziotti de Freitas**
 
-### Deployment
+##
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+Obrigado por visitar meu repositório...😎
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+...fique a vontade para entrar em contato quando quiser! 😉
