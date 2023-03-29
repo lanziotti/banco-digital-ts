@@ -1,16 +1,22 @@
+.container-extract {
+    min-height: 100vh;
+    background-color: #FDFAF3;
+    border-radius: 8rem;
+}
+
 .main-extract {
     height: 100%;
 
-    padding: 48px 0 52px 75px;
+    padding: 4.8rem 0 5.2rem 7.5rem;
 }
 
 .container-deposits {
-    margin-bottom: 32px;
+    margin-bottom: 3.2rem;
 }
 
 .title {
-    width: 1043px;
-    height: 61px;
+    width: 104.3rem;
+    height: 6.1rem;
 
     background-color: #4AE985;
 
@@ -21,21 +27,21 @@
 
 .title h2 {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 2.4rem;
 
     color: #0E0E0E;
 }
 
 .title span {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.6rem;
 
     color: #0E0E0E;
 }
 
 .sub-title {
-    width: 1043px;
-    height: 40px;
+    width: 104.3rem;
+    height: 4rem;
 
     background-color: #92E3A9;
 
@@ -45,16 +51,16 @@
 }
 
 .number_id {
-    margin: 0 358px 0 40px;
+    margin: 0 35.8rem 0 4rem;
 }
 
 .date {
-    margin: 0 40px 0 410px;
+    margin: 0 4rem 0 41rem;
 }
 
 .record {
-    width: 1043px;
-    height: 26.5px;
+    width: 104.3rem;
+    height: 2.65rem;
 
     display: flex;
     align-items: center;
@@ -62,45 +68,72 @@
 
     border-bottom: 1px solid #000000;
 
-    margin-top: 8px;
+    margin-top: 0.8rem;
 }
 
 .number_id_record, .number_id_record_transfer {
-    margin-left: 72px;
+    margin-left: 7.2rem;
 }
 
 .date_record {
-    margin-right: 22px;
+    margin-right: 2.2rem;
 }
 
 .value_record {
-    margin-left: 12px;
+    margin-left: 1.2rem;
 }
 
 .number_id_transfer {
-    margin: 0 210px 0 0;
+    margin: 0 21rem 0 0;
 }
 
 .value_transfer {
-    margin-right: 20px;
+    margin-right: 2rem;
 }
 
 .date_transfer {
-    margin: 0 138px 0 243px;
+    margin: 0 13.8rem 0 24.3rem;
 }
 
 .number_id_record_transfer {
-    margin-right: 60px;
+    margin-right: 6rem;
 }
 
 .value_record_transfer {
-    margin-right: 42px;
+    margin-right: 4.2rem;
 }
 
 .date_record_transfer {
-    margin-right: 10px;
+    margin-right: 1rem;
 }
 
 .number_account {
-    margin-right: 114px;
+    margin-right: 11.4rem;
+}
+
+@media only screen and (max-width: 1260px) {
+    .container-extract {
+        min-width: min-content;
+        min-height: 512vh;
+    }
+
+    .main-extract {
+        padding: 0;
+    }
+
+    .container-deposits {
+        margin: 4.8rem 7.5rem 5.2rem 7.5rem;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .container-extract {
+        border-radius: 0;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .container-deposits {
+        margin: 4.8rem 7.5rem 5.2rem 4.5rem;
+    }
 }

@@ -42,7 +42,7 @@ function Extract() {
 
     return (
         <>
-            <div className='container'>
+            <div className='container-extract'>
                 <HeaderMain />
                 <main className='main-extract'>
                     <div className='container-deposits'>
