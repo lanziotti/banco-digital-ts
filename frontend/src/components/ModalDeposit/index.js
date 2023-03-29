@@ -82,21 +82,27 @@ function ModalDeposit() {
             <div className='container-inputs'>
               <div className='container-input'>
                 <label htmlFor='value_deposit'>Valor</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type='text'
                   name='value_deposit'
                   value={valueDeposit}
+                  autoComplete='off'
                   onChange={(e) => setValueDeposit(e.target.value)}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
               </div>
               <div className='container-input'>
                 <label htmlFor='password_transact'>Senha para Transações</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type={showPasswordDeposit ? 'text' : 'password'}
                   name='password_transact'
                   value={passwordDeposit}
+                  autoComplete='off'
                   onChange={(e) => setPasswordDeposit(e.target.value)}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <img
                   src={showPasswordDeposit ? EyeCloseIcon : EyeIcon}
                   alt="Senha protegida"

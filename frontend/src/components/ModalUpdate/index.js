@@ -97,57 +97,75 @@ function ModalUpdate() {
             <div className='container-inputs-update'>
               <div className='container-input-update'>
                 <label htmlFor='name'>Nome</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type='text'
                   name='name'
                   value={formUpdate.name}
+                  autoComplete='off'
                   onChange={handleChangeFormUpdate}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
               </div>
               <div className='container-input-update'>
                 <label htmlFor='cpf'>CPF</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type='text'
                   name='cpf'
                   value={formUpdate.cpf}
+                  autoComplete='off'
                   onChange={handleChangeFormUpdate}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
               </div>
               <div className='container-input-update'>
                 <label htmlFor='date_of_birth'>Data de Nascimento</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type='date'
                   name='date_of_birth'
                   value={formUpdate.date_of_birth}
+                  autoComplete='off'
                   onChange={handleChangeFormUpdate}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
               </div>
               <div className='container-input-update'>
                 <label htmlFor='telephone'>Telefone</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type='text'
                   name='telephone'
                   value={formUpdate.telephone}
+                  autoComplete='off'
                   onChange={handleChangeFormUpdate}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
               </div>
               <div className='container-input-update'>
                 <label htmlFor='email'>E-mail</label>
+                <input type='text' name='email' className='stealthy' tabIndex='-1' />
                 <input
                   type='text'
                   name='email'
                   value={formUpdate.email}
+                  autoComplete='off'
                   onChange={handleChangeFormUpdate}
                 />
+                <input type='text' name='email' className='stealthy' tabIndex='-1' />
               </div>
               <div className='container-input-update'>
                 <label htmlFor='password_app'>Senha  de acesso ao APP</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type={showPasswordUpdateApp ? 'text' : 'password'}
                   name='password_app'
                   value={formUpdate.password_app}
+                  autoComplete='off'
                   onChange={handleChangeFormUpdate}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <img
                   src={showPasswordUpdateApp ? EyeCloseIcon : EyeIcon}
                   alt="Senha protegida"
@@ -156,12 +174,15 @@ function ModalUpdate() {
               </div>
               <div className='container-input-update'>
                 <label htmlFor='password_transaction'>Senha para Transações</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type={showPasswordUpdateTransaction ? 'text' : 'password'}
                   name='password_transaction'
                   value={formUpdate.password_transaction}
+                  autoComplete='off'
                   onChange={handleChangeFormUpdate}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <img
                   src={showPasswordUpdateTransaction ? EyeCloseIcon : EyeIcon}
                   alt="Senha protegida"

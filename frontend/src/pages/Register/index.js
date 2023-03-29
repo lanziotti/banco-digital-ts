@@ -106,66 +106,85 @@ function Register() {
                         <form
                             className='form-register'
                             onSubmit={handleSubmitRegister}
+                            autoComplete='off'
                         >
                             <div className='container-inputs'>
                                 <div className='container-input'>
                                     <label htmlFor='name'>Nome</label>
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                     <input
                                         placeholder='Ex: José Silva'
                                         type='text'
                                         name='name'
                                         value={formRegister.name}
+                                        autoComplete='off'
                                         onChange={handleChangeFormRegister}
                                     />
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                 </div>
                                 <div className='container-input'>
                                     <label htmlFor='cpf'>CPF</label>
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                     <input
                                         placeholder='Somente números. Ex: 00000000000'
                                         type='text'
                                         name='cpf'
                                         value={formRegister.cpf}
+                                        autoComplete='off'
                                         onChange={handleChangeFormRegister}
                                     />
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                 </div>
                                 <div className='container-input'>
                                     <label htmlFor='date_of_birth'>Data de Nascimento</label>
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                     <input
                                         placeholder='Ano-Mês-Dia. Ex: 1990-05-20'
                                         type='date'
                                         name='date_of_birth'
                                         value={formRegister.date_of_birth}
+                                        autoComplete='off'
                                         onChange={handleChangeFormRegister}
                                     />
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                 </div>
                                 <div className='container-input'>
                                     <label htmlFor='telephone'>Telefone</label>
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                     <input
                                         placeholder='Ex: (xx)xxxxx-xxxx'
                                         type='text'
                                         name='telephone'
                                         value={formRegister.telephone}
+                                        autoComplete='off'
                                         onChange={handleChangeFormRegister}
                                     />
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                 </div>
                                 <div className='container-input'>
                                     <label htmlFor='email'>E-mail</label>
+                                    <input type='text' name='email' className='stealthy' tabIndex='-1' />
                                     <input
                                         placeholder='Ex: jose@email.com'
                                         type='text'
                                         name='email'
                                         value={formRegister.email}
+                                        autoComplete='off'
                                         onChange={handleChangeFormRegister}
                                     />
+                                    <input type='text' name='email' className='stealthy' tabIndex='-1' />
                                 </div>
                                 <div className='container-input'>
                                     <label htmlFor='password_app'>Senha  de acesso ao APP</label>
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                     <input
                                         type={showPasswordApp ? 'text' : 'password'}
                                         name='password_app'
                                         value={formRegister.password_app}
+                                        autoComplete='off'
                                         onChange={handleChangeFormRegister}
                                     />
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                     <img
                                         src={showPasswordApp ? EyeCloseIcon : EyeIcon}
                                         alt="Senha protegida"
@@ -174,12 +193,15 @@ function Register() {
                                 </div>
                                 <div className='container-input'>
                                     <label htmlFor='password_transaction'>Senha para Transações</label>
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                     <input
                                         type={showPasswordTransaction ? 'text' : 'password'}
                                         name='password_transaction'
                                         value={formRegister.password_transaction}
+                                        autoComplete='off'
                                         onChange={handleChangeFormRegister}
                                     />
+                                    <input type='password' className='stealthy' tabIndex='-1' />
                                     <img
                                         src={showPasswordTransaction ? EyeCloseIcon : EyeIcon}
                                         alt="Senha protegida"

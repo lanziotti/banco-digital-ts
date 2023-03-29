@@ -82,21 +82,27 @@ function ModalWithdraw() {
             <div className='container-inputs'>
               <div className='container-input'>
                 <label htmlFor='value_deposit'>Valor</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type='text'
                   name='value_deposit'
                   value={valueWithdraw}
+                  autoComplete='off'
                   onChange={(e) => setValueWithdraw(e.target.value)}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
               </div>
               <div className='container-input'>
                 <label htmlFor='password_transact'>Senha para Transações</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type={showPasswordWithdraw ? 'text' : 'password'}
                   name='password_transact'
                   value={passwordWithdraw}
+                  autoComplete='off'
                   onChange={(e) => setPasswordWithdraw(e.target.value)}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <img
                   src={showPasswordWithdraw ? EyeCloseIcon : EyeIcon}
                   alt="Senha protegida"

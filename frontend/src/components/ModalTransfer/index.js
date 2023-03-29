@@ -86,30 +86,39 @@ function ModalTransfer() {
             <div className='container-inputs'>
               <div className='container-input'>
                 <label htmlFor='number_account'>Número da conta do favorecido</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type='text'
                   name='number_account'
                   value={destinationAccountNumber}
+                  autoComplete='off'
                   onChange={(e) => setDestinationAccountNumber(e.target.value)}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
               </div>
               <div className='container-input'>
                 <label htmlFor='value_deposit'>Valor</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type='text'
                   name='value_deposit'
                   value={valueTransfer}
+                  autoComplete='off'
                   onChange={(e) => setValueTransfer(e.target.value)}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
               </div>
               <div className='container-input'>
                 <label htmlFor='password_transact'>Senha para Transações</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type={showPasswordTransfer ? 'text' : 'password'}
                   name='password_transact'
                   value={passwordTransfer}
+                  autoComplete='off'
                   onChange={(e) => setPasswordTransfer(e.target.value)}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <img
                   src={showPasswordTransfer ? EyeCloseIcon : EyeIcon}
                   alt="Senha protegida"

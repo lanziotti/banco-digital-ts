@@ -93,21 +93,26 @@ function ModalLogin() {
             <div className='container-inputs'>
               <div className='container-input'>
                 <label htmlFor='email'>E-mail</label>
+                <input type='text' name='email' className='stealthy' tabIndex='-1' />
                 <input
                   type='text'
                   name='email'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
+                <input type='text' name='email' className='stealthy' tabIndex='-1' />
               </div>
               <div className='container-input'>
                 <label htmlFor='password_app'>Senha do APP</label>
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <input
                   type={showPasswordLogin ? 'text' : 'password'}
                   name='password_app'
                   value={passwordApp}
+                  autoComplete='off'
                   onChange={(e) => setPasswordApp(e.target.value)}
                 />
+                <input type='password' className='stealthy' tabIndex='-1' />
                 <img
                   src={showPasswordLogin ? EyeCloseIcon : EyeIcon}
                   alt="Senha protegida"
