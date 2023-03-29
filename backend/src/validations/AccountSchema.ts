@@ -10,8 +10,9 @@ export const accountSchema = z.object({
         required_error: "Todos os campos são obrigatórios.",
         invalid_type_error: "CPF Inválido."
     })
-    .min(11, "CPF Inválido.")
-    .max(11, "CPF Inválido."),
+    .regex(/^[0-9]+$/, "CPF Inválido. Digite apenas os números.")
+    .min(11, "CPF Inválido. Digite apenas os números.")
+    .max(11, "CPF Inválido. Digite apenas os números."),
     data_nascimento: z.preprocess((arg) => {
         if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
       }, z.date({
