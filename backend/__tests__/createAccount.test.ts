@@ -37,7 +37,7 @@ describe("Rota de cadastro de uma conta", () => {
         const { status, body } = await request(app).post("/conta").send(accountDataCpfInvalid);
 
         expect(status).toBe(400);
-        expect(body).toEqual([{ "mensagem": "CPF Inválido." }]);
+        expect(body).toEqual([{ "mensagem": "CPF Inválido. Digite apenas os números." }]);
     });
 
     it('Cadastro de uma conta com o campo CPF já existente no banco de dados...', async () => {
