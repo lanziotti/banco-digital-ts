@@ -90,7 +90,7 @@ describe("Rota de edição dos dados de uma conta", () => {
         const { status, body } = await request(app).put("/conta").send(accountDataCpfInvalid).set("Authorization", `Bearer ${token}`);
 
         expect(status).toBe(400);
-        expect(body).toEqual([{ "mensagem": "CPF Inválido." }]);
+        expect(body).toEqual([{ "mensagem": "CPF Inválido. Digite apenas os números." }]);
     });
 
     it('Edição dos dados de uma conta com o campo CPF já existente no banco de dados...', async () => {

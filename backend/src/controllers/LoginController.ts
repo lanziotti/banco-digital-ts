@@ -1,39 +1,31 @@
 import { Request, Response } from 'express';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import { accountRepository } from '../repositories/accountRepository';
+import { LoginService } from '../services/LoginService';
 
 export class LoginController {
     async create(req: Request, res: Response) {
+        const { email, senha } = req.body;
+
         try {
-            const { email, senha } = req.body;
+            const service = new LoginService();
 
-            const user = await accountRepository.findOneBy({ email });
+            const result = await service.execute(
+                {
+                    email,
+                    senha
+                }
+            );
 
-            if (!user) {
-                return res.status(404).json({ mensagem: "EMAIL e/ou SENHA inválidos." });
+            if (result instanceof Error) {
+                return res.status(404).json({ mensagem: result.message });
             }
 
-            const correctPassword = await bcrypt.compare(senha, user.senha_app);
-
-            if (!correctPassword) {
-                return res.status(404).json({ mensagem: "EMAIL e/ou SENHA inválidos." });
+            const resultLogin = {
+                usuario: result.usuario,
+                token: result.token
             }
 
-            const token = jwt.sign({ id: user.id }, process.env.HASH_JWT ?? '', { expiresIn: '8h' });
+            return res.status(200).json(resultLogin);
 
-            return res.status(200).json({
-                usuario: {
-                    id: user.id,
-                    nome: user.nome,
-                    email: user.email,
-                    cpf: user.cpf,
-                    data_nascimento: user.data_nascimento,
-                    telefone: user.telefone,
-                    saldo: Number(user.saldo)
-                },
-                token
-            });
         } catch (error) {
             return res.status(500).json({ mensagem: "Erro interno do servidor." });
         }

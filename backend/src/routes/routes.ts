@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { AccountController, DeleteAccountController, DetailAccountDataController, UpdateAccountController } from '../controllers/AccountController';
+import { CreateAccountController, DeleteAccountController, DetailAccountDataController, UpdateAccountController } from '../controllers/AccountController';
 import { DepositController } from '../controllers/DepositController';
 import { LoginController } from '../controllers/LoginController';
 import { TransferController } from '../controllers/TransferController';
@@ -15,7 +15,7 @@ import { ExtractController } from '../controllers/ExtractController';
 
 const routes = Router();
 
-routes.post('/conta', schemaValidation(accountSchema), new AccountController().create);
+routes.post('/conta', schemaValidation(accountSchema), new CreateAccountController().create);
 routes.post('/login', schemaValidation(loginSchema), new LoginController().create);
 
 routes.use(authenticationFilter);
