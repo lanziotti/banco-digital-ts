@@ -9,7 +9,7 @@ import { GlobalContext } from '../../contexts/GlobalContext';
 import ModalLogin from '../../components/ModalLogin';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
-import { notifyError, notifySucess } from '../../utils/notifications';
+import { notifyError, notifyLoading, notifySucess } from '../../utils/notifications';
 import { getItem, setItem } from '../../utils/storage';
 
 
@@ -42,6 +42,11 @@ function Register() {
             if (!formRegister.name || !formRegister.cpf || !formRegister.date_of_birth || !formRegister.telephone || !formRegister.email || !formRegister.password_app || !formRegister.password_transaction) {
                 return notifyError('Todos os campos são obrigatórios.');
             }
+
+            notifyLoading(
+                'https://banco-digital.cyclic.app/login',
+                'Criando sua conta Digital Banking...'
+            );
 
             await api.post('/conta',
                 {

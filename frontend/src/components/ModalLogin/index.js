@@ -8,7 +8,7 @@ import { useContext, useEffect } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import { getItem, setItem } from '../../utils/storage';
-import { notifyError } from '../../utils/notifications';
+import { notifyError, notifyLoading } from '../../utils/notifications';
 import api from '../../services/api';
 
 function ModalLogin() {
@@ -39,6 +39,11 @@ function ModalLogin() {
       if (!email || !passwordApp) {
         return notifyError('Todos os campos são obrigatórios.');
       }
+
+      notifyLoading(
+        'https://banco-digital.cyclic.app/login',
+        'Entrando na sua conta Digital Banking...'
+      );
 
       const responseLogin = await api.post('/login', {
         email,

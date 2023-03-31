@@ -25,3 +25,22 @@ export const notifyError = (message) => {
         theme: "dark",
     })
 }
+
+export const notifyLoading = async (url, message) => {
+    await toast.promise(
+        fetch(url),
+        {
+            pending: message
+        },
+        {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        }
+    )
+}
