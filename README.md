@@ -41,4 +41,4 @@ https://banco-digital-ts-front.vercel.app
 
 ######
 
-Feito por Rodrigo Lanziotti :wave::wave: Entre em contato sempre que quiser! Feedbacks são sempre bem-vindos!🚀
+Feito por Rodrigo Lanziotti :wave::wave: Entre em contato sempre que quiser! Feedbacks são sempre bem-vindos!🚀🚀
